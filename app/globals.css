@@ -2,25 +2,76 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0a0f1e;
 }
 
+/* inline block: only vars that must reference other CSS vars at runtime */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-dm-sans), 'DM Sans', system-ui, sans-serif;
+  --font-display: var(--font-syne), 'Syne', system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* regular block: literal-value tokens — registers CSS vars at :root AND generates utilities */
+@theme {
+  /* Navy spectrum */
+  --color-navy-950: #050d22;
+  --color-navy-900: #0a1530;
+  --color-navy-800: #152354;
+  --color-navy-700: #1c2f6e;
+  --color-navy-600: #253d88;
+  --color-navy-100: #dde3f5;
+  --color-navy-50:  #f0f3fc;
+
+  /* Brand green */
+  --color-brand-700: #15803d;
+  --color-brand-600: #16a34a;
+  --color-brand-500: #22c55e;
+  --color-brand-400: #4ade80;
+  --color-brand-300: #86efac;
+  --color-brand-100: #dcfce7;
+  --color-brand-50:  #f0fdf4;
+
+  /* Animations */
+  --animate-fade-in-up:  fadeInUp  0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-fade-in:     fadeIn    0.6s ease                            both;
+  --animate-slide-left:  slideLeft  0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-slide-right: slideRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-float:       float     5s   ease-in-out                    infinite;
+  --animate-pulse-slow:  pulseSlow 3s   ease-in-out                    infinite;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes fadeInUp   { from { opacity:0; transform:translateY(50px) } to { opacity:1; transform:translateY(0) } }
+@keyframes fadeIn     { from { opacity:0 }                              to { opacity:1 } }
+@keyframes slideLeft  { from { opacity:0; transform:translateX(-50px) } to { opacity:1; transform:translateX(0) } }
+@keyframes slideRight { from { opacity:0; transform:translateX(50px) }  to { opacity:1; transform:translateX(0) } }
+@keyframes float      { 0%,100% { transform:translateY(0) } 50% { transform:translateY(-14px) } }
+@keyframes pulseSlow  { 0%,100% { opacity:0.3 }             50% { opacity:0.7 } }
+
+html { scroll-behavior: smooth; }
+body { background: var(--background); color: var(--foreground); }
+
+.hero-dots {
+  background-image: radial-gradient(circle, rgba(34,197,94,0.13) 1.5px, transparent 1.5px);
+  background-size: 34px 34px;
 }
+
+.text-green-gradient {
+  background: linear-gradient(135deg, #4ade80 0%, #22c55e 60%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes numGlowGreen {
+  0%, 100% { color: #bbf7d0; }
+  50%       { color: #4ade80; }
+}
+@keyframes numGlowNavy {
+  0%, 100% { color: #dde3f5; }
+  50%       { color: #93a8d8; }
+}
+.num-glow-green { color: #bbf7d0; animation: numGlowGreen 3s ease-in-out infinite; }
+.num-glow-navy  { color: #dde3f5; animation: numGlowNavy  3s ease-in-out infinite; }
