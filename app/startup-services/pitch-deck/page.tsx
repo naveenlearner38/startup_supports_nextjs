@@ -1,46 +1,27 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import AnimateOnScroll from "@/components/AnimateOnScroll";
+import NavbarV1 from "@/components/NavbarV1";
+import FooterV1 from "@/components/FooterV1";
+import AnimateV1 from "@/components/AnimateV1";
+import Card3D from "@/components/Card3D";
 
 export const metadata: Metadata = {
-  title: "Pitch Deck Creation — Startup Supports",
+  title: "Pitch Deck Creation — Startup Supports V1",
   description: "Investor-ready pitch decks crafted by experts. We help Indian startups tell compelling stories that secure funding.",
 };
 
 const process = [
-  {
-    n: "01",
-    title: "Discovery Call",
-    desc: "We deep-dive into your business model, target market, traction, team, and funding ask. This 60-minute session shapes everything that follows.",
-  },
-  {
-    n: "02",
-    title: "Research & Narrative",
-    desc: "Our team researches your industry, competitive landscape, and investor expectations to craft a story arc that resonates with your ideal investor.",
-  },
-  {
-    n: "03",
-    title: "Design & Build",
-    desc: "Slides are designed to communicate, not just look good — clear data visualizations, compelling visuals, and a logical flow from problem to ask.",
-  },
-  {
-    n: "04",
-    title: "Review & Refine",
-    desc: "You get two rounds of revisions. We push back where needed and sharpen every slide until it earns its place in the deck.",
-  },
-  {
-    n: "05",
-    title: "Final Delivery",
-    desc: "You receive editable PowerPoint + PDF exports, a speaker notes guide, and a one-page summary for warm intros.",
-  },
+  { n: "01", title: "Discovery Call", desc: "We deep-dive into your business model, target market, traction, team, and funding ask in a 60-minute session." },
+  { n: "02", title: "Research & Narrative", desc: "Industry research, competitive landscape, and investor expectations shape a story arc that resonates." },
+  { n: "03", title: "Design & Build", desc: "Slides designed to communicate — clear data viz, compelling visuals, and logical flow from problem to ask." },
+  { n: "04", title: "Review & Refine", desc: "Two rounds of revisions. We push back where needed and sharpen every slide until it earns its place." },
+  { n: "05", title: "Final Delivery", desc: "Editable PPTX + PDF, speaker notes guide, and a one-page executive summary for warm intros." },
 ];
 
 const deliverables = [
   "10–18 professionally designed slides",
-  "Problem / Solution / Market / Business Model / Traction / Team / Ask structure",
+  "Problem / Solution / Market / BM / Traction / Team / Ask",
   "Investor-ready financial summary slide",
   "Competitive landscape analysis",
   "TAM/SAM/SOM market sizing",
@@ -52,89 +33,206 @@ const deliverables = [
 
 const problems = [
   "Most decks bury the lede — investors lose interest in the first 3 slides.",
-  "Founders tell the story they want to tell, not the story investors want to hear.",
+  "Founders tell the story they want, not the story investors want to hear.",
   "Generic templates signal a lack of thought and preparation.",
   "Poor data presentation hides real traction behind vague claims.",
 ];
 
-export default function PitchDeckPage() {
+function CornerBrackets({ color = "rgba(10,10,11,0.12)" }: { color?: string }) {
+  const s: React.CSSProperties = { position: "absolute", width: 24, height: 24, borderColor: color };
   return (
     <>
-      <Navbar />
-      <main className="flex-1">
+      <div style={{ ...s, top: 12, left: 12, borderTop: "1px solid", borderLeft: "1px solid" }} />
+      <div style={{ ...s, top: 12, right: 12, borderTop: "1px solid", borderRight: "1px solid" }} />
+      <div style={{ ...s, bottom: 12, left: 12, borderBottom: "1px solid", borderLeft: "1px solid" }} />
+      <div style={{ ...s, bottom: 12, right: 12, borderBottom: "1px solid", borderRight: "1px solid" }} />
+    </>
+  );
+}
 
-        {/* ── HERO ── */}
-        <section className="relative bg-white overflow-hidden border-b border-navy-100 pt-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 items-center py-16 lg:py-20">
+export default function PitchDeckV1() {
+  return (
+    <>
+      <NavbarV1 />
+      <main>
 
-              {/* Left — text */}
+        {/* ── HERO — full dark, editorial magazine ── */}
+        <section
+          className="relative overflow-hidden pt-16"
+          style={{ background: "#08080A", minHeight: "100vh" }}
+        >
+          <CornerBrackets color="rgba(244,242,237,0.1)" />
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{ background: "radial-gradient(ellipse 70% 60% at 30% 50%, rgba(34,197,94,0.07), transparent)" }}
+          />
+
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 flex flex-col justify-center min-h-[calc(100vh-64px)]">
+            <div
+              className="text-xs tracking-[0.18em] uppercase mb-8"
+              style={{ color: "#5A5A5F", fontFamily: "var(--font-geist-body), monospace" }}
+            >
+              — Startup Services · Core Service · 01
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-16 items-end">
               <div>
-                <div className="animate-fade-in inline-flex items-center gap-2 bg-brand-100 border border-brand-200 text-brand-700 text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
-                  <span className="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse-slow" />
-                  Startup Services — Core Service
-                </div>
-                <h1 className="font-display font-extrabold text-navy-900 text-4xl lg:text-5xl leading-none tracking-tight mb-6 animate-fade-in-up">
-                  Pitch Decks<br />
-                  <span className="text-green-gradient">That Open Doors.</span>
+                <h1
+                  className="font-extrabold text-white leading-[0.9] tracking-tight mb-8"
+                  style={{
+                    fontFamily: "var(--font-bricolage), system-ui",
+                    fontSize: "clamp(3rem, 2rem + 4vw, 6rem)",
+                  }}
+                >
+                  The Deck{" "}
+                  <br />
+                  <em
+                    style={{
+                      fontFamily: "var(--font-instrument), Georgia",
+                      fontStyle: "italic",
+                      fontWeight: 400,
+                      color: "#22c55e",
+                    }}
+                  >
+                    That Opens
+                  </em>
+                  <br />
+                  Doors<span style={{ color: "#22c55e" }}>.</span>
                 </h1>
-                <p className="text-navy-700/65 text-lg leading-relaxed animate-fade-in-up" style={{ animationDelay: "150ms" }}>
-                  Investors see hundreds of decks a month. Yours needs to stop them in their tracks — with a story so clear, so compelling, that the next step writes itself.
+
+                <p className="text-lg leading-relaxed mb-10 max-w-lg" style={{ color: "rgba(244,242,237,0.5)" }}>
+                  Investors see hundreds of decks a month. Yours needs to stop them — with a story so clear, so compelling, the next step writes itself.
                 </p>
+
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a
+                    href="mailto:info@startupsupports.in?subject=Pitch Deck Enquiry"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 font-bold rounded-full transition-all hover:-translate-y-0.5"
+                    style={{ background: "#22c55e", color: "#fff", boxShadow: "0 8px 28px rgba(34,197,94,0.4)" }}
+                  >
+                    Start Your Deck →
+                  </a>
+                  <Link
+                    href="/"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold rounded-full transition-all hover:border-white/40"
+                    style={{ border: "1.5px solid rgba(244,242,237,0.2)", color: "rgba(244,242,237,0.7)" }}
+                  >
+                    ← All Services
+                  </Link>
+                </div>
               </div>
 
-              {/* Right — image */}
-              <div className="animate-fade-in hidden lg:block" style={{ animationDelay: "200ms" }}>
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-navy-900/20 aspect-[4/3]">
+              {/* Right — image card */}
+              <div className="hidden lg:block">
+                <div className="relative rounded-2xl overflow-hidden" style={{ aspectRatio: "4/3" }}>
                   <Image
                     src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=900&q=80"
-                    alt="Team presenting a pitch deck to investors"
+                    alt="Team presenting pitch deck to investors"
                     fill
                     className="object-cover"
                     priority
+                    style={{ filter: "saturate(0.75)" }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-tr from-navy-900/30 to-transparent" />
-                  <div className="absolute bottom-5 left-5 flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full">
-                    <span className="w-2 h-2 rounded-full bg-brand-500" />
-                    <span className="text-navy-900 text-xs font-bold">Investor-Ready Decks</span>
+                  <div
+                    className="absolute inset-0"
+                    style={{ background: "linear-gradient(135deg, rgba(8,8,10,0.4), transparent)" }}
+                  />
+                  <div
+                    className="absolute bottom-5 left-5 flex items-center gap-2 backdrop-blur-sm px-4 py-2 rounded-full"
+                    style={{ background: "rgba(8,8,10,0.7)", border: "1px solid rgba(34,197,94,0.3)" }}
+                  >
+                    <span className="w-2 h-2 rounded-full" style={{ background: "#22c55e" }} />
+                    <span className="text-xs font-bold" style={{ color: "#F4F2ED" }}>Investor-Ready Decks</span>
                   </div>
                 </div>
               </div>
+            </div>
 
+            {/* Stat chips */}
+            <div className="mt-16 flex flex-wrap gap-4">
+              {[
+                { n: "7–10", l: "Business Days" },
+                { n: "18", l: "Slides Max" },
+                { n: "2x", l: "Revision Rounds" },
+              ].map((s) => (
+                <div
+                  key={s.l}
+                  className="flex items-center gap-3 px-5 py-3 rounded-full"
+                  style={{ background: "#101013", border: "1px solid #1F1F22" }}
+                >
+                  <span
+                    className="font-bold text-white"
+                    style={{ fontFamily: "var(--font-bricolage)" }}
+                  >
+                    {s.n}
+                  </span>
+                  <span className="text-xs tracking-widest uppercase" style={{ color: "#5A5A5F", fontFamily: "var(--font-geist-body), monospace" }}>
+                    {s.l}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* ── THE PROBLEM ── */}
-        <section className="py-20 bg-white">
+        {/* ── THE PROBLEM ── linen section ── */}
+        <section className="py-24" style={{ background: "#F4F2ED" }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <AnimateOnScroll animation="slide-left">
-                <h2 className="font-display font-extrabold text-navy-900 text-3xl leading-tight mb-6">
-                  Why Most Decks<br />
-                  <span className="text-brand-600">Never Get a Second Look</span>
+            <div className="grid lg:grid-cols-2 gap-16 items-start">
+              <AnimateV1 animation="slide-left">
+                <div
+                  className="text-xs tracking-[0.15em] uppercase mb-5"
+                  style={{ color: "#9A9A9F", fontFamily: "var(--font-geist-body), monospace" }}
+                >
+                  — The Problem
+                </div>
+                <h2
+                  className="font-extrabold leading-tight mb-6"
+                  style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(1.8rem, 1.4rem + 2vw, 2.8rem)", color: "#0A0A0B" }}
+                >
+                  Why Most Decks{" "}
+                  <em style={{ fontFamily: "var(--font-instrument)", fontStyle: "italic", fontWeight: 400, color: "#22c55e" }}>
+                    Never Get
+                  </em>{" "}
+                  a Second Look
                 </h2>
-                <p className="text-navy-700/70 leading-relaxed mb-8">
-                  It is not your idea. It is not your team. It is the presentation. Investors decide in 90 seconds whether a deck deserves a deeper read. If your story is not immediately clear, you have already lost.
+                <p className="leading-relaxed mb-8" style={{ color: "#9A9A9F" }}>
+                  It is not your idea. It is not your team. It is the presentation. Investors decide in 90 seconds whether a deck deserves a deeper read.
                 </p>
                 <div className="space-y-3">
                   {problems.map((p) => (
-                    <div key={p} className="flex items-start gap-3 p-4 bg-red-50 border border-red-100 rounded-xl">
-                      <svg className="w-4 h-4 text-red-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                      <p className="text-sm text-red-800/80">{p}</p>
+                    <div key={p} className="flex items-start gap-3 p-4 rounded-xl" style={{ background: "rgba(239,68,68,0.05)", border: "1px solid rgba(239,68,68,0.1)" }}>
+                      <div className="w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5" style={{ background: "rgba(239,68,68,0.1)" }}>
+                        <span style={{ color: "#ef4444", fontSize: 10 }}>✕</span>
+                      </div>
+                      <p className="text-sm leading-relaxed" style={{ color: "#5A5A5F" }}>{p}</p>
                     </div>
                   ))}
                 </div>
-              </AnimateOnScroll>
+              </AnimateV1>
 
-              <AnimateOnScroll animation="slide-right" delay={100}>
-                <div className="bg-brand-600 rounded-3xl p-8 text-white relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-48 h-48 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
-                  <h3 className="font-display font-bold text-2xl mb-3">The Startup Supports Difference</h3>
-                  <p className="text-white/70 leading-relaxed mb-6">
-                    We do not make pretty slides. We build persuasion engines — structured around how investors actually think, designed to answer their questions before they ask them.
+              <AnimateV1 animation="slide-right" delay={100}>
+                <Card3D
+                  className="rounded-2xl p-8 relative overflow-hidden"
+                  shadowColor="rgba(34,197,94,0.45)"
+                  style={{ background: "#0A0A0B" }}
+                >
+                  <CornerBrackets color="rgba(34,197,94,0.15)" />
+                  <div
+                    className="text-xs tracking-widest uppercase mb-5"
+                    style={{ color: "#22c55e", fontFamily: "var(--font-geist-body), monospace" }}
+                  >
+                    — The Startup Supports Difference
+                  </div>
+                  <h3
+                    className="font-bold text-white text-2xl mb-3"
+                    style={{ fontFamily: "var(--font-bricolage)" }}
+                  >
+                    Persuasion engines,{" "}
+                    <em style={{ fontFamily: "var(--font-instrument)", fontStyle: "italic", fontWeight: 400 }}>not pretty slides.</em>
+                  </h3>
+                  <p className="text-sm leading-relaxed mb-6" style={{ color: "rgba(244,242,237,0.5)" }}>
+                    Structured around how investors actually think, designed to answer their questions before they ask them.
                   </p>
                   <div className="space-y-3">
                     {[
@@ -144,96 +242,167 @@ export default function PitchDeckPage() {
                       "Industry-specific tailoring",
                     ].map((item) => (
                       <div key={item} className="flex items-center gap-3">
-                        <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center shrink-0">
-                          <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <div
+                          className="w-5 h-5 rounded-full flex items-center justify-center shrink-0"
+                          style={{ background: "rgba(34,197,94,0.2)", border: "1px solid rgba(34,197,94,0.3)" }}
+                        >
+                          <svg className="w-3 h-3" style={{ color: "#22c55e" }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                           </svg>
                         </div>
-                        <span className="text-white/85 text-sm font-medium">{item}</span>
+                        <span className="text-sm" style={{ color: "rgba(244,242,237,0.75)" }}>{item}</span>
                       </div>
                     ))}
                   </div>
-                </div>
-              </AnimateOnScroll>
+                </Card3D>
+              </AnimateV1>
             </div>
           </div>
         </section>
 
-        {/* ── PROCESS ── */}
-        <section className="py-20 bg-navy-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <AnimateOnScroll className="text-center mb-14">
-              <h2 className="font-display font-extrabold text-navy-900 text-3xl lg:text-4xl mb-4">Our Process</h2>
-              <p className="text-navy-700/60 text-lg">From blank page to investor-ready in 7–10 business days.</p>
-            </AnimateOnScroll>
-            <div className="space-y-4 max-w-3xl mx-auto">
+        {/* ── PROCESS — dark, large numbered cards ── */}
+        <section className="py-24 relative overflow-hidden" style={{ background: "#08080A" }}>
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              backgroundImage: "radial-gradient(circle, rgba(34,197,94,0.05) 1.5px, transparent 1.5px)",
+              backgroundSize: "40px 40px",
+            }}
+          />
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <AnimateV1 className="text-center mb-14">
+              <h2
+                className="font-extrabold text-white"
+                style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(1.8rem, 1.4rem + 2vw, 2.8rem)" }}
+              >
+                Our Process
+              </h2>
+              <p className="mt-3 text-lg" style={{ color: "#5A5A5F" }}>
+                Blank page to investor-ready in{" "}
+                <em style={{ fontFamily: "var(--font-instrument)", fontStyle: "italic", color: "#22c55e" }}>7–10 business days</em>.
+              </p>
+            </AnimateV1>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
               {process.map((step, i) => (
-                <AnimateOnScroll key={step.n} delay={i * 80}>
-                  <div className="flex gap-5 bg-white rounded-2xl p-6 border border-navy-100 hover:border-brand-300 hover:shadow-md transition-all">
-                    <div className="shrink-0 w-12 h-12 rounded-xl bg-brand-600 flex items-center justify-center">
-                      <span className="font-display font-black text-white text-sm">{step.n}</span>
+                <AnimateV1 key={step.n} animation="fade-up" delay={i * 70}>
+                  <Card3D
+                    className="rounded-2xl p-7 relative overflow-hidden"
+                    shadowColor="rgba(34,197,94,0.4)"
+                    style={{ background: "#101013", border: "1px solid #1F1F22", height: "100%" }}
+                  >
+                    <div
+                      className="absolute -right-2 -top-3 font-black select-none pointer-events-none"
+                      style={{ fontFamily: "var(--font-bricolage)", fontSize: "6rem", lineHeight: 1, color: "#1F1F22" }}
+                    >
+                      {step.n}
                     </div>
-                    <div>
-                      <h3 className="font-display font-bold text-navy-900 text-lg mb-1">{step.title}</h3>
-                      <p className="text-navy-700/60 text-sm leading-relaxed">{step.desc}</p>
+                    <div
+                      className="font-black mb-5"
+                      style={{ fontFamily: "var(--font-bricolage)", fontSize: "1.5rem", color: "#22c55e" }}
+                    >
+                      {step.n}
                     </div>
-                  </div>
-                </AnimateOnScroll>
+                    <h3
+                      className="font-bold text-white text-lg mb-2"
+                      style={{ fontFamily: "var(--font-bricolage)" }}
+                    >
+                      {step.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed" style={{ color: "#5A5A5F" }}>{step.desc}</p>
+                  </Card3D>
+                </AnimateV1>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ── DELIVERABLES ── */}
-        <section className="py-20 bg-white">
+        {/* ── DELIVERABLES + CTA ── linen ── */}
+        <section className="py-24" style={{ background: "#F4F2ED" }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-16 items-start">
-              <AnimateOnScroll>
-                <h2 className="font-display font-extrabold text-navy-900 text-3xl lg:text-4xl leading-tight mb-4">
-                  What You Get
+              <AnimateV1>
+                <div
+                  className="text-xs tracking-[0.15em] uppercase mb-5"
+                  style={{ color: "#9A9A9F", fontFamily: "var(--font-geist-body), monospace" }}
+                >
+                  — What You Get
+                </div>
+                <h2
+                  className="font-extrabold leading-tight mb-4"
+                  style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(1.8rem, 1.4rem + 2vw, 2.8rem)", color: "#0A0A0B" }}
+                >
+                  Everything to walk into{" "}
+                  <em style={{ fontFamily: "var(--font-instrument)", fontStyle: "italic", fontWeight: 400, color: "#22c55e" }}>
+                    any investor meeting
+                  </em>.
                 </h2>
-                <p className="text-navy-700/60 text-lg mb-8">
-                  Everything you need to walk into any investor meeting with absolute confidence.
+                <p className="leading-relaxed mb-8" style={{ color: "#9A9A9F" }}>
+                  With absolute confidence — every deliverable included.
                 </p>
+
                 <div className="grid sm:grid-cols-2 gap-3">
                   {deliverables.map((d) => (
-                    <div key={d} className="flex items-start gap-2.5 p-3 bg-brand-50 rounded-xl border border-brand-100">
-                      <svg className="w-4 h-4 text-brand-600 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-sm text-navy-800">{d}</span>
+                    <div
+                      key={d}
+                      className="flex items-start gap-2.5 p-3 rounded-xl"
+                      style={{ background: "#fff", border: "1px solid #E8E5DC" }}
+                    >
+                      <div className="w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5" style={{ background: "rgba(34,197,94,0.15)" }}>
+                        <svg className="w-2.5 h-2.5" style={{ color: "#22c55e" }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <span className="text-sm" style={{ color: "#2A2A2E" }}>{d}</span>
                     </div>
                   ))}
                 </div>
-              </AnimateOnScroll>
+              </AnimateV1>
 
-              <AnimateOnScroll delay={100}>
-                <div className="bg-navy-900 rounded-3xl p-8 text-white sticky top-24">
-                  <div className="text-brand-400 text-xs uppercase tracking-widest font-bold mb-6">Ready to start?</div>
-                  <h3 className="font-display font-bold text-3xl mb-3">Let&apos;s build your deck.</h3>
-                  <p className="text-white/50 text-sm leading-relaxed mb-8">
-                    Reach out today and get a free 30-minute consultation on your pitch narrative.
+              <AnimateV1 delay={100}>
+                <Card3D
+                  className="rounded-2xl p-8 sticky top-24"
+                  shadowColor="rgba(34,197,94,0.45)"
+                  style={{ background: "#0A0A0B" }}
+                >
+                  <CornerBrackets color="rgba(34,197,94,0.2)" />
+                  <div
+                    className="text-xs tracking-widest uppercase mb-6"
+                    style={{ color: "#22c55e", fontFamily: "var(--font-geist-body), monospace" }}
+                  >
+                    — Ready to Start?
+                  </div>
+                  <h3
+                    className="font-bold text-white mb-2"
+                    style={{ fontFamily: "var(--font-bricolage)", fontSize: "1.75rem" }}
+                  >
+                    Let&apos;s build your deck<span style={{ color: "#22c55e" }}>.</span>
+                  </h3>
+                  <p className="text-sm leading-relaxed mb-8" style={{ color: "rgba(244,242,237,0.4)" }}>
+                    Get a free 30-minute consultation on your pitch narrative.
                   </p>
                   <a
                     href="mailto:info@startupsupports.in?subject=Pitch Deck Enquiry"
-                    className="w-full flex items-center justify-center gap-2 py-4 bg-brand-500 hover:bg-brand-600 text-white font-bold rounded-full transition-all hover:shadow-xl hover:shadow-brand-500/30 hover:-translate-y-0.5 mb-3"
+                    className="w-full flex items-center justify-center gap-2 py-4 font-bold rounded-full transition-all hover:-translate-y-0.5 mb-3"
+                    style={{ background: "#22c55e", color: "#fff", boxShadow: "0 8px 28px rgba(34,197,94,0.35)" }}
                   >
                     Start Your Pitch Deck
                   </a>
                   <Link
                     href="/"
-                    className="w-full flex items-center justify-center gap-2 py-4 border border-white/20 text-white/70 hover:text-white hover:border-white/40 rounded-full text-sm transition-colors"
+                    className="w-full flex items-center justify-center py-3 rounded-full text-sm transition-colors"
+                    style={{ border: "1px solid rgba(244,242,237,0.15)", color: "rgba(244,242,237,0.5)" }}
                   >
                     ← Back to All Services
                   </Link>
-                </div>
-              </AnimateOnScroll>
+                </Card3D>
+              </AnimateV1>
             </div>
           </div>
         </section>
 
       </main>
-      <Footer />
+      <FooterV1 />
     </>
   );
 }

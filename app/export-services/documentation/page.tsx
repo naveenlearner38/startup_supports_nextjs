@@ -1,249 +1,362 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import AnimateOnScroll from "@/components/AnimateOnScroll";
+import NavbarV1 from "@/components/NavbarV1";
+import FooterV1 from "@/components/FooterV1";
+import AnimateV1 from "@/components/AnimateV1";
+import Card3D from "@/components/Card3D";
 
 export const metadata: Metadata = {
-  title: "Export Documentation Service — Startup Supports",
-  description: "IEC, GST+PAN, AD Code, RCMC — all your export licences and registrations handled end-to-end by experts.",
+  title: "Export Documentation Service — Startup Supports V1",
+  description: "IEC, GST+PAN, AD Code, RCMC — all your export licences and registrations handled end-to-end.",
 };
 
 const documents = [
   {
     code: "IEC",
     full: "Importer Exporter Code",
+    timeline: "3–5 working days",
     desc: "Mandatory 10-digit code issued by DGFT. Required for every international trade transaction from India.",
   },
   {
-    code: "GST + PAN",
+    code: "GST+PAN",
     full: "Tax Registrations",
+    timeline: "7–10 working days",
     desc: "GST registration for export rebates (LUT/IGST) and PAN linkage for all trade documentation.",
   },
   {
     code: "AD Code",
     full: "Authorised Dealer Code",
+    timeline: "2–3 working days",
     desc: "Bank-assigned code registered at the port of export. Required for customs filing and foreign remittance.",
   },
   {
     code: "RCMC",
     full: "Registration Cum Membership Certificate",
+    timeline: "7–15 working days",
     desc: "Issued by Export Promotion Councils. Unlocks MEIS/RoDTEP benefits and trade facilitation schemes.",
   },
 ];
 
 const process = [
-  {
-    n: "01",
-    title: "Requirement Assessment",
-    desc: "We map your business type, products, HS codes, and export destinations to identify every registration you need.",
-  },
-  {
-    n: "02",
-    title: "Document Checklist",
-    desc: "You receive a precise checklist of documents to gather. We handle the filing — you just supply the source documents.",
-  },
-  {
-    n: "03",
-    title: "Filing & Submission",
-    desc: "Our experts file applications with DGFT, CBIC, your bank, and the relevant Export Promotion Council on your behalf.",
-  },
-  {
-    n: "04",
-    title: "Tracking & Follow-up",
-    desc: "We actively track every application and follow up with authorities to prevent delays and rejections.",
-  },
-  {
-    n: "05",
-    title: "Certificate Delivery",
-    desc: "You receive certified digital copies of all registrations, properly organised and ready for use in trade transactions.",
-  },
+  { n: "01", title: "Requirement Assessment", desc: "We map your business type, products, HS codes, and export destinations to identify every registration you need." },
+  { n: "02", title: "Document Checklist", desc: "You receive a precise checklist of documents to gather. We handle the filing — you supply the source documents." },
+  { n: "03", title: "Filing & Submission", desc: "Our experts file applications with DGFT, CBIC, your bank, and the relevant Export Promotion Council." },
+  { n: "04", title: "Tracking & Follow-up", desc: "We actively track every application and follow up with authorities to prevent delays and rejections." },
+  { n: "05", title: "Certificate Delivery", desc: "You receive certified digital copies of all registrations, properly organised and ready for trade." },
 ];
 
-export default function DocumentationPage() {
+function CornerBrackets({ color = "rgba(10,10,11,0.12)" }: { color?: string }) {
+  const s: React.CSSProperties = { position: "absolute", width: 24, height: 24, borderColor: color };
   return (
     <>
-      <Navbar />
-      <main className="flex-1">
+      <div style={{ ...s, top: 12, left: 12, borderTop: "1px solid", borderLeft: "1px solid" }} />
+      <div style={{ ...s, top: 12, right: 12, borderTop: "1px solid", borderRight: "1px solid" }} />
+      <div style={{ ...s, bottom: 12, left: 12, borderBottom: "1px solid", borderLeft: "1px solid" }} />
+      <div style={{ ...s, bottom: 12, right: 12, borderBottom: "1px solid", borderRight: "1px solid" }} />
+    </>
+  );
+}
 
-        {/* ── HERO ── */}
-        <section className="relative bg-white overflow-hidden border-b border-navy-100 pt-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 items-center py-16 lg:py-20">
+export default function DocumentationV1() {
+  return (
+    <>
+      <NavbarV1 />
+      <main>
 
-              {/* Left — text */}
+        {/* ── HERO — navy official/document feel ── */}
+        <section
+          className="relative overflow-hidden pt-16"
+          style={{ background: "#0a1530", minHeight: "90vh" }}
+        >
+          <CornerBrackets color="rgba(244,242,237,0.1)" />
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              backgroundImage: "linear-gradient(rgba(34,197,94,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(34,197,94,0.04) 1px, transparent 1px)",
+              backgroundSize: "60px 60px",
+            }}
+          />
+
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 flex flex-col justify-center" style={{ minHeight: "calc(90vh - 64px)" }}>
+            <div
+              className="text-xs tracking-[0.18em] uppercase mb-8"
+              style={{ color: "rgba(244,242,237,0.3)", fontFamily: "var(--font-geist-body), monospace" }}
+            >
+              — Export Services · Core Service · 03
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div>
-                <div className="animate-fade-in inline-flex items-center gap-2 bg-navy-100 border border-navy-200 text-navy-700 text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
-                  <span className="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse-slow" />
-                  Export Services — Core Service
-                </div>
-                <h1 className="font-display font-extrabold text-navy-900 text-4xl lg:text-5xl leading-none tracking-tight mb-6 animate-fade-in-up">
-                  All Your Export<br />
-                  <span className="text-green-gradient">Documents.</span><br />
-                  Done Right.
+                <h1
+                  className="font-extrabold text-white leading-[0.9] tracking-tight mb-8"
+                  style={{
+                    fontFamily: "var(--font-bricolage), system-ui",
+                    fontSize: "clamp(2.8rem, 2rem + 4vw, 5.5rem)",
+                  }}
+                >
+                  All Your Export
+                  <br />
+                  <em style={{ fontFamily: "var(--font-instrument), Georgia", fontStyle: "italic", fontWeight: 400, color: "#22c55e" }}>
+                    Documents.
+                  </em>
+                  <br />
+                  Done Right<span style={{ color: "#22c55e" }}>.</span>
                 </h1>
-                <p className="text-navy-700/65 text-lg leading-relaxed animate-fade-in-up" style={{ animationDelay: "150ms" }}>
+
+                <p className="text-lg leading-relaxed mb-10 max-w-lg" style={{ color: "rgba(244,242,237,0.5)" }}>
                   IEC. GST+PAN. AD Code. RCMC. Four registrations that unlock India&apos;s entire export ecosystem — and we handle every single one for you.
                 </p>
-              </div>
 
-              {/* Right — image */}
-              <div className="animate-fade-in hidden lg:block" style={{ animationDelay: "200ms" }}>
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-navy-900/20 aspect-[4/3]">
-                  <Image
-                    src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=900&q=80"
-                    alt="Export documentation and compliance paperwork"
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-tr from-navy-900/40 to-transparent" />
-                  <div className="absolute bottom-5 left-5 flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full">
-                    <span className="w-2 h-2 rounded-full bg-brand-500" />
-                    <span className="text-navy-900 text-xs font-bold">IEC · RCMC · AD Code · GST</span>
-                  </div>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a
+                    href="mailto:info@startupsupports.in?subject=Export Documentation Enquiry"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 font-bold rounded-full transition-all hover:-translate-y-0.5"
+                    style={{ background: "#22c55e", color: "#fff", boxShadow: "0 8px 28px rgba(34,197,94,0.4)" }}
+                  >
+                    Start Your Registration →
+                  </a>
+                  <Link
+                    href="/"
+                    className="inline-flex items-center justify-center px-8 py-4 font-semibold rounded-full"
+                    style={{ border: "1.5px solid rgba(244,242,237,0.15)", color: "rgba(244,242,237,0.6)" }}
+                  >
+                    ← All Services
+                  </Link>
                 </div>
               </div>
 
+              {/* Right — doc code chips */}
+              <div className="hidden lg:grid grid-cols-2 gap-4">
+                {documents.map((doc, i) => (
+                  <AnimateV1 key={doc.code} animation="scale-up" delay={i * 70}>
+                    <div
+                      className="rounded-2xl p-5"
+                      style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
+                    >
+                      <div
+                        className="font-black text-xl mb-2"
+                        style={{ fontFamily: "var(--font-bricolage)", color: "#22c55e" }}
+                      >
+                        {doc.code}
+                      </div>
+                      <div className="font-semibold text-white text-sm mb-1" style={{ fontFamily: "var(--font-bricolage)" }}>
+                        {doc.full}
+                      </div>
+                      <div
+                        className="text-xs tracking-widest uppercase"
+                        style={{ color: "rgba(244,242,237,0.3)", fontFamily: "var(--font-geist-body), monospace" }}
+                      >
+                        {doc.timeline}
+                      </div>
+                    </div>
+                  </AnimateV1>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ── WHAT IS THIS ── */}
-        <section className="py-20 bg-white">
+        {/* ── THE 4 REGISTRATIONS ── linen ── */}
+        <section className="py-24" style={{ background: "#F4F2ED" }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <AnimateOnScroll className="text-center max-w-2xl mx-auto mb-14">
-              <h2 className="font-display font-extrabold text-navy-900 text-3xl lg:text-4xl mb-4">
-                The Four Registrations Every Exporter Needs
+            <AnimateV1 className="text-center max-w-2xl mx-auto mb-14">
+              <h2
+                className="font-extrabold leading-tight mb-4"
+                style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(1.8rem, 1.4rem + 2vw, 2.8rem)", color: "#0A0A0B" }}
+              >
+                The Four Registrations{" "}
+                <em style={{ fontFamily: "var(--font-instrument)", fontStyle: "italic", fontWeight: 400, color: "#22c55e" }}>
+                  Every Exporter Needs
+                </em>
               </h2>
-              <p className="text-navy-700/60 text-lg">
-                Missing even one of these blocks your shipment, payment, or benefits. We make sure you have all of them — correctly registered, on time.
+              <p style={{ color: "#9A9A9F" }}>
+                Missing even one blocks your shipment, payment, or benefits. We make sure you have all — correctly registered, on time.
               </p>
-            </AnimateOnScroll>
+            </AnimateV1>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-5">
               {documents.map((doc, i) => (
-                <AnimateOnScroll key={doc.code} delay={i * 80}>
-                  <div className="flex gap-5 p-6 bg-navy-50 rounded-2xl border border-navy-100 hover:border-navy-400 hover:shadow-lg transition-all">
-                    <div className="shrink-0">
-                      <div className="w-16 h-16 rounded-2xl bg-navy-800 flex items-center justify-center">
-                        <span className="font-display font-black text-brand-400 text-xs text-center leading-tight px-1">{doc.code}</span>
-                      </div>
+                <AnimateV1 key={doc.code} animation="fade-up" delay={i * 70}>
+                  <Card3D
+                    className="rounded-2xl p-6 flex gap-5"
+                    shadowColor="rgba(34,197,94,0.4)"
+                    style={{ background: "#fff", border: "1px solid #E8E5DC" }}
+                  >
+                    <div
+                      className="shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center"
+                      style={{ background: "#0a1530" }}
+                    >
+                      <span
+                        className="font-black text-xs text-center leading-tight px-1"
+                        style={{ fontFamily: "var(--font-bricolage)", color: "#22c55e" }}
+                      >
+                        {doc.code}
+                      </span>
                     </div>
                     <div>
-                      <div className="font-display font-bold text-navy-900 text-lg">{doc.full}</div>
-                      <div className="text-brand-600 text-xs font-bold uppercase tracking-wider mb-2">{doc.code}</div>
-                      <p className="text-navy-700/60 text-sm leading-relaxed">{doc.desc}</p>
+                      <div
+                        className="font-bold text-lg mb-0.5"
+                        style={{ fontFamily: "var(--font-bricolage)", color: "#0A0A0B" }}
+                      >
+                        {doc.full}
+                      </div>
+                      <div
+                        className="text-xs tracking-widest uppercase mb-2"
+                        style={{ color: "#22c55e", fontFamily: "var(--font-geist-body), monospace" }}
+                      >
+                        {doc.timeline}
+                      </div>
+                      <p className="text-sm leading-relaxed" style={{ color: "#9A9A9F" }}>{doc.desc}</p>
                     </div>
-                  </div>
-                </AnimateOnScroll>
+                  </Card3D>
+                </AnimateV1>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ── STORY ── */}
-        <section className="py-20 bg-navy-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <AnimateOnScroll animation="slide-left">
-                <h2 className="font-display font-extrabold text-navy-900 text-3xl leading-tight mb-6">
-                  The Cost of Getting<br />
-                  <span className="text-navy-600">This Wrong</span>
+        {/* ── COST OF GETTING IT WRONG ── dark ── */}
+        <section className="py-24 relative overflow-hidden" style={{ background: "#08080A" }}>
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{ background: "radial-gradient(ellipse 60% 50% at 20% 50%, rgba(34,197,94,0.05), transparent)" }}
+          />
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-16 items-start">
+              <AnimateV1 animation="slide-left">
+                <h2
+                  className="font-extrabold text-white leading-tight mb-6"
+                  style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(1.8rem, 1.4rem + 2vw, 2.8rem)" }}
+                >
+                  The Cost of Getting{" "}
+                  <em style={{ fontFamily: "var(--font-instrument)", fontStyle: "italic", fontWeight: 400 }}>
+                    This Wrong
+                  </em>
                 </h2>
-                <p className="text-navy-700/70 leading-relaxed mb-5">
-                  Incorrect or incomplete export documentation leads to shipment holds at customs, rejected bank transactions, forfeited government benefits, and costly delays that damage client relationships.
+                <p className="leading-relaxed mb-5" style={{ color: "rgba(244,242,237,0.5)" }}>
+                  Incorrect or incomplete export documentation leads to shipment holds at customs, rejected bank transactions, forfeited government benefits, and costly delays.
                 </p>
-                <p className="text-navy-700/70 leading-relaxed mb-8">
-                  Most first-time exporters get at least one of these registrations wrong. We have seen it hundreds of times. That is exactly why we exist.
+                <p className="leading-relaxed mb-8" style={{ color: "rgba(244,242,237,0.5)" }}>
+                  Most first-time exporters get at least one registration wrong. We have seen it hundreds of times — which is exactly why we exist.
                 </p>
-                <div className="p-5 bg-navy-800 rounded-2xl text-white">
-                  <div className="text-brand-400 text-xs uppercase tracking-widest font-bold mb-2">Our guarantee</div>
-                  <p className="text-white/80 text-sm leading-relaxed">
+                <div className="rounded-2xl p-5" style={{ background: "rgba(34,197,94,0.08)", border: "1px solid rgba(34,197,94,0.2)" }}>
+                  <div className="text-xs tracking-widest uppercase mb-2" style={{ color: "#22c55e", fontFamily: "var(--font-geist-body), monospace" }}>Our Guarantee</div>
+                  <p className="text-sm" style={{ color: "rgba(244,242,237,0.7)" }}>
                     We file accurately or we refile at no charge. Your registrations will be approved, or we make it right.
                   </p>
                 </div>
-              </AnimateOnScroll>
+              </AnimateV1>
 
-              <AnimateOnScroll animation="slide-right" delay={100}>
-                <div className="bg-white rounded-3xl p-8 border-2 border-navy-100 shadow-lg">
-                  <h3 className="font-display font-bold text-navy-900 text-2xl mb-6">Typical Timeline</h3>
+              <AnimateV1 animation="slide-right" delay={100}>
+                <Card3D
+                  className="rounded-2xl p-8"
+                  shadowColor="rgba(34,197,94,0.45)"
+                  style={{ background: "#fff" }}
+                >
+                  <h3
+                    className="font-bold text-2xl mb-6"
+                    style={{ fontFamily: "var(--font-bricolage)", color: "#0A0A0B" }}
+                  >
+                    Typical Timeline
+                  </h3>
                   <div className="space-y-4">
                     {[
-                      { doc: "IEC", time: "3–5 working days", color: "bg-brand-500" },
-                      { doc: "GST Registration", time: "7–10 working days", color: "bg-brand-600" },
-                      { doc: "AD Code Registration", time: "2–3 working days", color: "bg-navy-700" },
-                      { doc: "RCMC", time: "7–15 working days", color: "bg-navy-800" },
+                      { doc: "IEC", time: "3–5 working days", pct: 35 },
+                      { doc: "GST Registration", time: "7–10 working days", pct: 70 },
+                      { doc: "AD Code Registration", time: "2–3 working days", pct: 25 },
+                      { doc: "RCMC", time: "7–15 working days", pct: 90 },
                     ].map((item) => (
-                      <div key={item.doc} className="flex items-center gap-4">
-                        <div className={`w-2 h-10 rounded-full ${item.color} shrink-0`} />
-                        <div className="flex-1">
-                          <div className="font-semibold text-navy-900 text-sm">{item.doc}</div>
-                          <div className="text-navy-600/50 text-xs">{item.time}</div>
+                      <div key={item.doc}>
+                        <div className="flex justify-between mb-1.5">
+                          <span className="font-semibold text-sm" style={{ color: "#0A0A0B" }}>{item.doc}</span>
+                          <span className="text-xs" style={{ color: "#9A9A9F", fontFamily: "var(--font-geist-body), monospace" }}>{item.time}</span>
+                        </div>
+                        <div className="h-1.5 rounded-full" style={{ background: "#EDEBE4" }}>
+                          <div
+                            className="h-1.5 rounded-full"
+                            style={{ width: `${item.pct}%`, background: "#22c55e" }}
+                          />
                         </div>
                       </div>
                     ))}
                   </div>
-                  <p className="text-navy-600/50 text-xs mt-4">* Timelines subject to authority processing speed. We expedite wherever possible.</p>
-                </div>
-              </AnimateOnScroll>
+                  <p className="text-xs mt-4" style={{ color: "#9A9A9F" }}>* Timelines subject to authority processing speed. We expedite wherever possible.</p>
+                </Card3D>
+              </AnimateV1>
             </div>
           </div>
         </section>
 
         {/* ── PROCESS + CTA ── */}
-        <section className="py-20 bg-white">
+        <section className="py-24" style={{ background: "#F4F2ED" }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <AnimateOnScroll className="text-center mb-14">
-              <h2 className="font-display font-extrabold text-navy-900 text-3xl mb-4">How We Do It</h2>
-              <p className="text-navy-700/60 text-lg">You supply the documents. We handle everything else.</p>
-            </AnimateOnScroll>
+            <AnimateV1 className="text-center mb-14">
+              <h2 style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(1.8rem, 1.4rem + 2vw, 2.4rem)", color: "#0A0A0B", fontWeight: 800 }}>
+                How We Do It
+              </h2>
+              <p className="mt-3" style={{ color: "#9A9A9F" }}>You supply the documents. We handle everything else.</p>
+            </AnimateV1>
 
             <div className="grid lg:grid-cols-3 gap-8 items-start">
               <div className="lg:col-span-2 space-y-4">
                 {process.map((step, i) => (
-                  <AnimateOnScroll key={step.n} delay={i * 70}>
-                    <div className="flex gap-5 bg-navy-50 rounded-2xl p-5 border border-navy-100 hover:border-navy-300 transition-colors">
-                      <div className="shrink-0 w-10 h-10 rounded-xl bg-navy-800 flex items-center justify-center">
-                        <span className="font-display font-black text-brand-400 text-xs">{step.n}</span>
+                  <AnimateV1 key={step.n} animation="slide-left" delay={i * 60}>
+                    <div
+                      className="flex gap-5 p-5 rounded-2xl"
+                      style={{ background: "#fff", border: "1px solid #E8E5DC" }}
+                    >
+                      <div
+                        className="shrink-0 w-10 h-10 rounded-xl flex items-center justify-center"
+                        style={{ background: "#0a1530" }}
+                      >
+                        <span className="font-black text-xs" style={{ fontFamily: "var(--font-bricolage)", color: "#22c55e" }}>{step.n}</span>
                       </div>
                       <div>
-                        <h3 className="font-display font-bold text-navy-900 mb-1">{step.title}</h3>
-                        <p className="text-navy-700/60 text-sm leading-relaxed">{step.desc}</p>
+                        <h3 className="font-bold mb-1" style={{ fontFamily: "var(--font-bricolage)", color: "#0A0A0B" }}>{step.title}</h3>
+                        <p className="text-sm leading-relaxed" style={{ color: "#9A9A9F" }}>{step.desc}</p>
                       </div>
                     </div>
-                  </AnimateOnScroll>
+                  </AnimateV1>
                 ))}
               </div>
 
-              <AnimateOnScroll delay={200}>
-                <div className="bg-navy-900 rounded-3xl p-8 text-white sticky top-24">
-                  <div className="text-brand-400 text-xs uppercase tracking-widest font-bold mb-6">Get started</div>
-                  <h3 className="font-display font-bold text-2xl mb-3">Export-ready in weeks.</h3>
-                  <p className="text-white/50 text-sm leading-relaxed mb-8">
-                    Tell us where you want to export, and we will map every registration you need and file them for you.
+              <AnimateV1 delay={200}>
+                <Card3D
+                  className="rounded-2xl p-8 sticky top-24"
+                  shadowColor="rgba(34,197,94,0.45)"
+                  style={{ background: "#0A0A0B" }}
+                >
+                  <CornerBrackets color="rgba(34,197,94,0.15)" />
+                  <div className="text-xs tracking-widest uppercase mb-6" style={{ color: "#22c55e", fontFamily: "var(--font-geist-body), monospace" }}>— Get Started</div>
+                  <h3 className="font-bold text-white mb-2" style={{ fontFamily: "var(--font-bricolage)", fontSize: "1.5rem" }}>
+                    Export-ready in weeks<span style={{ color: "#22c55e" }}>.</span>
+                  </h3>
+                  <p className="text-sm leading-relaxed mb-8" style={{ color: "rgba(244,242,237,0.4)" }}>
+                    Tell us where you want to export, and we will map every registration you need.
                   </p>
                   <a
                     href="mailto:info@startupsupports.in?subject=Export Documentation Enquiry"
-                    className="w-full flex items-center justify-center py-4 bg-brand-500 hover:bg-brand-600 text-white font-bold rounded-full transition-all hover:shadow-xl hover:-translate-y-0.5 mb-3"
+                    className="w-full flex items-center justify-center py-4 font-bold rounded-full transition-all hover:-translate-y-0.5 mb-3"
+                    style={{ background: "#22c55e", color: "#fff", boxShadow: "0 8px 28px rgba(34,197,94,0.35)" }}
                   >
                     Start Your Registration
                   </a>
                   <Link
                     href="/"
-                    className="w-full flex items-center justify-center py-4 border border-white/20 text-white/70 hover:text-white hover:border-white/40 rounded-full text-sm transition-colors"
+                    className="w-full flex items-center justify-center py-3 rounded-full text-sm"
+                    style={{ border: "1px solid rgba(244,242,237,0.15)", color: "rgba(244,242,237,0.5)" }}
                   >
                     ← Back to All Services
                   </Link>
-                </div>
-              </AnimateOnScroll>
+                </Card3D>
+              </AnimateV1>
             </div>
           </div>
         </section>
 
       </main>
-      <Footer />
+      <FooterV1 />
     </>
   );
 }

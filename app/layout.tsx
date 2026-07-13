@@ -1,16 +1,24 @@
 import type { Metadata } from "next";
-import { Syne, DM_Sans } from "next/font/google";
+import { Bricolage_Grotesque, Instrument_Serif, DM_Sans } from "next/font/google";
 import "./globals.css";
 
-const syne = Syne({
-  variable: "--font-syne",
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
+const instrument = Instrument_Serif({
+  variable: "--font-instrument",
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
+const geist = DM_Sans({
+  variable: "--font-geist-body",
   subsets: ["latin"],
   display: "swap",
 });
@@ -27,9 +35,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${syne.variable} ${dmSans.variable} h-full scroll-smooth`}
+      className={`${bricolage.variable} ${instrument.variable} ${geist.variable} h-full scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col antialiased">{children}</body>
+      <body
+        className="min-h-full flex flex-col antialiased"
+        style={{ fontFamily: "var(--font-geist-body), system-ui, sans-serif" }}
+      >
+        {children}
+      </body>
     </html>
   );
 }

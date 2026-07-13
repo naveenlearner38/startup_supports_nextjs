@@ -2,21 +2,21 @@ import Link from "next/link";
 import Image from "next/image";
 
 const startup = [
-  { label: "Pitch Deck Creation", href: "/startup-services/pitch-deck" },
-  { label: "Business Plan & Financial Modeling", href: "/startup-services/business-plan" },
-  { label: "Company Incorporation", href: "/#startup" },
-  { label: "DPIIT Certificate", href: "/#startup" },
-  { label: "DPR", href: "/#startup" },
-  { label: "Market Research", href: "/#startup" },
+  { label: "Pitch Deck Creation", href: "/v2/startup-services/pitch-deck" },
+  { label: "Business Plan & Financial Modeling", href: "/v2/startup-services/business-plan" },
+  { label: "Company Incorporation", href: "/v2#startup" },
+  { label: "DPIIT Certificate", href: "/v2#startup" },
+  { label: "DPR", href: "/v2#startup" },
+  { label: "Market Research", href: "/v2#startup" },
 ];
 
 const exports = [
-  { label: "Documentation Service", href: "/export-services/documentation" },
-  { label: "Freight Forwarding & Logistics", href: "/export-services/freight-forwarding" },
-  { label: "International Banking Support", href: "/export-services/international-banking" },
-  { label: "Export Consultancy", href: "/#export" },
-  { label: "Export Compliance", href: "/#export" },
-  { label: "Trade Finance Consultancy", href: "/#export" },
+  { label: "Documentation Service", href: "/v2/export-services/documentation" },
+  { label: "Freight Forwarding & Logistics", href: "/v2/export-services/freight-forwarding" },
+  { label: "International Banking Support", href: "/v2/export-services/international-banking" },
+  { label: "Export Consultancy", href: "/v2#export" },
+  { label: "Export Compliance", href: "/v2#export" },
+  { label: "Trade Finance Consultancy", href: "/v2#export" },
 ];
 
 export default function Footer() {

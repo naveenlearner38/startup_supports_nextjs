@@ -2,19 +2,19 @@ import Link from "next/link";
 import Image from "next/image";
 
 const startup = [
-  { label: "Pitch Deck Creation", href: "/v1/startup-services/pitch-deck" },
-  { label: "Business Plan & Financial Modeling", href: "/v1/startup-services/business-plan" },
-  { label: "Company Incorporation", href: "/v1#startup" },
-  { label: "DPIIT Certificate", href: "/v1#startup" },
-  { label: "Market Research", href: "/v1#startup" },
+  { label: "Pitch Deck Creation", href: "/startup-services/pitch-deck" },
+  { label: "Business Plan & Financial Modeling", href: "/startup-services/business-plan" },
+  { label: "Company Incorporation", href: "/#startup" },
+  { label: "DPIIT Certificate", href: "/#startup" },
+  { label: "Market Research", href: "/#startup" },
 ];
 
 const exports = [
-  { label: "Documentation Service", href: "/v1/export-services/documentation" },
-  { label: "Freight Forwarding & Logistics", href: "/v1/export-services/freight-forwarding" },
-  { label: "International Banking Support", href: "/v1/export-services/international-banking" },
-  { label: "Export Consultancy", href: "/v1#export" },
-  { label: "Trade Finance Advisory", href: "/v1#export" },
+  { label: "Documentation Service", href: "/export-services/documentation" },
+  { label: "Freight Forwarding & Logistics", href: "/export-services/freight-forwarding" },
+  { label: "International Banking Support", href: "/export-services/international-banking" },
+  { label: "Export Consultancy", href: "/#export" },
+  { label: "Trade Finance Advisory", href: "/#export" },
 ];
 
 export default function FooterV1() {

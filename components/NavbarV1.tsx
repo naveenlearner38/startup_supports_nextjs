@@ -5,19 +5,19 @@ import Link from "next/link";
 import Image from "next/image";
 
 const startupLinks = [
-  { label: "Pitch Deck Creation", href: "/v1/startup-services/pitch-deck", main: true },
-  { label: "Business Plan & Financial Modeling", href: "/v1/startup-services/business-plan", main: true },
-  { label: "Company Incorporation", href: "/v1#startup", main: false },
-  { label: "DPIIT Certificate", href: "/v1#startup", main: false },
-  { label: "DPR / Market Research", href: "/v1#startup", main: false },
+  { label: "Pitch Deck Creation", href: "/startup-services/pitch-deck", main: true },
+  { label: "Business Plan & Financial Modeling", href: "/startup-services/business-plan", main: true },
+  { label: "Company Incorporation", href: "/#startup", main: false },
+  { label: "DPIIT Certificate", href: "/#startup", main: false },
+  { label: "DPR / Market Research", href: "/#startup", main: false },
 ];
 
 const exportLinks = [
-  { label: "Documentation Service", href: "/v1/export-services/documentation", main: true },
-  { label: "Freight Forwarding & Logistics", href: "/v1/export-services/freight-forwarding", main: true },
-  { label: "International Banking Support", href: "/v1/export-services/international-banking", main: true },
-  { label: "Export Consultancy", href: "/v1#export", main: false },
-  { label: "Trade Finance Advisory", href: "/v1#export", main: false },
+  { label: "Documentation Service", href: "/export-services/documentation", main: true },
+  { label: "Freight Forwarding & Logistics", href: "/export-services/freight-forwarding", main: true },
+  { label: "International Banking Support", href: "/export-services/international-banking", main: true },
+  { label: "Export Consultancy", href: "/#export", main: false },
+  { label: "Trade Finance Advisory", href: "/#export", main: false },
 ];
 
 function Dropdown({ links }: { links: typeof startupLinks }) {
@@ -99,46 +99,51 @@ function NavGroup({ label, links }: { label: string; links: typeof startupLinks 
           position: "absolute",
           top: "100%",
           left: "50%",
-          marginTop: "0.75rem",
+          paddingTop: "0.75rem",
           width: "18rem",
-          borderRadius: "1rem",
-          padding: "0.5rem 0",
           zIndex: 50,
-          background: "#fff",
-          border: "1px solid #E8E5DC",
-          boxShadow: "0 20px 60px rgba(0,0,0,0.1)",
           opacity: open ? 1 : 0,
           pointerEvents: open ? "auto" : "none",
           transform: `translateX(-50%) translateY(${open ? "0" : "-4px"})`,
           transition: "opacity 0.2s ease, transform 0.2s ease",
         }}
       >
-        <div className="px-2">
-          {links.filter((l) => l.main).map((l) => (
-            <Link
-              key={l.label}
-              href={l.href}
-              className="flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm hover:bg-brand-50 transition-colors"
-              style={{ color: "#2A2A2E", fontFamily: "var(--font-geist-body)" }}
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-brand-500 shrink-0" />
-              {l.label}
-            </Link>
-          ))}
-        </div>
-        <div style={{ margin: "0.25rem 0.75rem", borderTop: "1px solid #E8E5DC" }} />
-        <div className="px-2">
-          <p className="px-3 py-1 text-[10px] tracking-widest uppercase" style={{ color: "#9A9A9F" }}>Also available</p>
-          {links.filter((l) => !l.main).map((l) => (
-            <Link
-              key={l.label}
-              href={l.href}
-              className="block px-3 py-2 text-sm rounded-lg transition-colors hover:bg-linen"
-              style={{ color: "#9A9A9F", fontFamily: "var(--font-geist-body)" }}
-            >
-              {l.label}
-            </Link>
-          ))}
+        <div
+          style={{
+            borderRadius: "1rem",
+            padding: "0.5rem 0",
+            background: "#fff",
+            border: "1px solid #E8E5DC",
+            boxShadow: "0 20px 60px rgba(0,0,0,0.1)",
+          }}
+        >
+          <div className="px-2">
+            {links.filter((l) => l.main).map((l) => (
+              <Link
+                key={l.label}
+                href={l.href}
+                className="flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm hover:bg-brand-50 transition-colors"
+                style={{ color: "#2A2A2E", fontFamily: "var(--font-geist-body)" }}
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-500 shrink-0" />
+                {l.label}
+              </Link>
+            ))}
+          </div>
+          <div style={{ margin: "0.25rem 0.75rem", borderTop: "1px solid #E8E5DC" }} />
+          <div className="px-2">
+            <p className="px-3 py-1 text-[10px] tracking-widest uppercase" style={{ color: "#9A9A9F" }}>Also available</p>
+            {links.filter((l) => !l.main).map((l) => (
+              <Link
+                key={l.label}
+                href={l.href}
+                className="block px-3 py-2 text-sm rounded-lg transition-colors hover:bg-linen"
+                style={{ color: "#9A9A9F", fontFamily: "var(--font-geist-body)" }}
+              >
+                {l.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -167,7 +172,7 @@ export default function NavbarV1() {
       }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
-        <Link href="/v1" className="shrink-0">
+        <Link href="/" className="shrink-0">
           <Image
             src="/logo.png"
             alt="Startup Supports"
@@ -181,7 +186,7 @@ export default function NavbarV1() {
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-1">
           <Link
-            href="/v1"
+            href="/"
             className="px-4 py-2 text-sm rounded-lg transition-colors hover:bg-linen"
             style={{ color: "#2A2A2E" }}
           >
@@ -190,7 +195,7 @@ export default function NavbarV1() {
           <NavGroup label="Startup Services" links={startupLinks} />
           <NavGroup label="Export Services" links={exportLinks} />
           <Link
-            href="/v1#contact"
+            href="/#contact"
             className="ml-3 px-5 py-2.5 bg-ink text-white text-sm font-semibold rounded-full transition-all hover:-translate-y-px hover:shadow-lg hover:shadow-ink/20"
             style={{ color: "#fff", background: "#0A0A0B" }}
           >
@@ -224,7 +229,7 @@ export default function NavbarV1() {
           style={{ background: "#F4F2ED", borderColor: "#DDDAD0" }}
         >
           <div className="max-w-7xl mx-auto px-4 pt-3 space-y-0.5">
-            <Link href="/v1" className="block py-2.5 px-3 text-sm rounded-lg" style={{ color: "#2A2A2E" }} onClick={() => setMobileOpen(false)}>
+            <Link href="/" className="block py-2.5 px-3 text-sm rounded-lg" style={{ color: "#2A2A2E" }} onClick={() => setMobileOpen(false)}>
               Home
             </Link>
             {[
@@ -261,7 +266,7 @@ export default function NavbarV1() {
             ))}
             <div className="pt-2">
               <Link
-                href="/v1#contact"
+                href="/#contact"
                 className="block text-center py-3 text-sm font-semibold rounded-full"
                 style={{ background: "#0A0A0B", color: "#fff" }}
                 onClick={() => setMobileOpen(false)}

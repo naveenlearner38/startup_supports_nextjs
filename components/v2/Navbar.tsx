@@ -5,21 +5,21 @@ import Link from "next/link";
 import Image from "next/image";
 
 const startupLinks = [
-  { label: "Pitch Deck Creation", href: "/startup-services/pitch-deck", main: true },
-  { label: "Business Plan & Financial Modeling", href: "/startup-services/business-plan", main: true },
-  { label: "Company Incorporation", href: "/#startup", main: false },
-  { label: "DPIIT Certificate", href: "/#startup", main: false },
-  { label: "DPR", href: "/#startup", main: false },
-  { label: "Market Research", href: "/#startup", main: false },
+  { label: "Pitch Deck Creation", href: "/v2/startup-services/pitch-deck", main: true },
+  { label: "Business Plan & Financial Modeling", href: "/v2/startup-services/business-plan", main: true },
+  { label: "Company Incorporation", href: "/v2#startup", main: false },
+  { label: "DPIIT Certificate", href: "/v2#startup", main: false },
+  { label: "DPR", href: "/v2#startup", main: false },
+  { label: "Market Research", href: "/v2#startup", main: false },
 ];
 
 const exportLinks = [
-  { label: "Documentation Service", href: "/export-services/documentation", main: true },
-  { label: "Freight Forwarding & Logistics", href: "/export-services/freight-forwarding", main: true },
-  { label: "International Banking Support", href: "/export-services/international-banking", main: true },
-  { label: "Export Consultancy", href: "/#export", main: false },
-  { label: "Export Compliance", href: "/#export", main: false },
-  { label: "Trade Finance Consultancy", href: "/#export", main: false },
+  { label: "Documentation Service", href: "/v2/export-services/documentation", main: true },
+  { label: "Freight Forwarding & Logistics", href: "/v2/export-services/freight-forwarding", main: true },
+  { label: "International Banking Support", href: "/v2/export-services/international-banking", main: true },
+  { label: "Export Consultancy", href: "/v2#export", main: false },
+  { label: "Export Compliance", href: "/v2#export", main: false },
+  { label: "Trade Finance Consultancy", href: "/v2#export", main: false },
 ];
 
 function ChevronIcon() {
@@ -34,36 +34,38 @@ function DropdownMenu({ links }: { links: typeof startupLinks }) {
   const mains = links.filter((l) => l.main);
   const others = links.filter((l) => !l.main);
   return (
-    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 bg-white rounded-2xl shadow-2xl shadow-navy-900/10 border border-navy-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2 z-50">
-      <div className="px-3 pt-1 pb-2">
-        {mains.map((l) => (
-          <Link
-            key={l.href + l.label}
-            href={l.href}
-            className="flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm font-medium text-navy-800 hover:bg-brand-50 hover:text-brand-700 transition-colors"
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-brand-500 shrink-0" />
-            {l.label}
-          </Link>
-        ))}
+    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-72 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+      <div className="bg-white rounded-2xl shadow-2xl shadow-navy-900/10 border border-navy-100 py-2">
+        <div className="px-3 pt-1 pb-2">
+          {mains.map((l) => (
+            <Link
+              key={l.href + l.label}
+              href={l.href}
+              className="flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm font-medium text-navy-800 hover:bg-brand-50 hover:text-brand-700 transition-colors"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-500 shrink-0" />
+              {l.label}
+            </Link>
+          ))}
+        </div>
+        {others.length > 0 && (
+          <>
+            <div className="mx-3 border-t border-navy-100" />
+            <div className="px-3 pt-2 pb-1">
+              <p className="px-3 text-[10px] text-navy-600/40 uppercase tracking-widest font-semibold mb-1">Also available</p>
+              {others.map((l) => (
+                <Link
+                  key={l.href + l.label}
+                  href={l.href}
+                  className="block px-3 py-2 text-sm text-navy-600/60 hover:text-navy-800 hover:bg-navy-50 rounded-lg transition-colors"
+                >
+                  {l.label}
+                </Link>
+              ))}
+            </div>
+          </>
+        )}
       </div>
-      {others.length > 0 && (
-        <>
-          <div className="mx-3 border-t border-navy-100" />
-          <div className="px-3 pt-2 pb-1">
-            <p className="px-3 text-[10px] text-navy-600/40 uppercase tracking-widest font-semibold mb-1">Also available</p>
-            {others.map((l) => (
-              <Link
-                key={l.href + l.label}
-                href={l.href}
-                className="block px-3 py-2 text-sm text-navy-600/60 hover:text-navy-800 hover:bg-navy-50 rounded-lg transition-colors"
-              >
-                {l.label}
-              </Link>
-            ))}
-          </div>
-        </>
-      )}
     </div>
   );
 }
@@ -89,7 +91,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          <Link href="/" className="shrink-0">
+          <Link href="/v2" className="shrink-0">
             <Image
               src="/logo.png"
               alt="Startup Supports"
@@ -102,7 +104,7 @@ export default function Navbar() {
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-1">
-            <Link href="/" className="px-4 py-2 text-sm font-medium text-navy-700 hover:text-navy-900 rounded-lg hover:bg-navy-50 transition-colors">
+            <Link href="/v2" className="px-4 py-2 text-sm font-medium text-navy-700 hover:text-navy-900 rounded-lg hover:bg-navy-50 transition-colors">
               Home
             </Link>
 
@@ -151,7 +153,7 @@ export default function Navbar() {
       {open && (
         <div className="md:hidden bg-white border-t border-navy-100 pb-4 shadow-lg">
           <div className="max-w-7xl mx-auto px-4 pt-3 space-y-1">
-            <Link href="/" className="block py-2.5 px-3 text-navy-700 text-sm font-medium rounded-lg hover:bg-navy-50" onClick={() => setOpen(false)}>
+            <Link href="/v2" className="block py-2.5 px-3 text-navy-700 text-sm font-medium rounded-lg hover:bg-navy-50" onClick={() => setOpen(false)}>
               Home
             </Link>
 
