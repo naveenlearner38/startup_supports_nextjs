@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import NavbarV1 from "@/components/NavbarV1";
 import FooterV1 from "@/components/FooterV1";
 import HeroCards from "@/components/HeroCards";
@@ -81,6 +82,37 @@ const statsData = [
   { target: 50,  suffix: "+", label: "Countries Reached" },
   { target: 95,  suffix: "%", label: "Success Rate" },
   { target: 8,   suffix: "+", label: "Years of Expertise" },
+];
+
+const events = [
+  { src: "/images/event-4.jpg", alt: "Startup Supports founder addressing a business gathering", span: "lg:row-span-2" },
+  { src: "/images/event-2.jpg", alt: "Community felicitation event with Startup Supports team", span: "lg:col-span-2" },
+  { src: "/images/event-3.jpg", alt: "Roundtable discussion with industry leaders", span: "" },
+  { src: "/images/event-1.jpg", alt: "Startup Supports team at a business felicitation ceremony", span: "" },
+  { src: "/images/event-5.jpg", alt: "Panel discussion at a community business event", span: "lg:col-span-2" },
+];
+
+const testimonials = [
+  {
+    name: "Varun Hirani",
+    company: "Triranga Precast — Surat, Gujarat",
+    quote: "We are resolute with Startup Supports' solutions — we've engaged since 10 years, good work.",
+  },
+  {
+    name: "Rajjyat Singh",
+    company: "Nirwana Events — Raipur, CG",
+    quote: "Great experience with Startup Supports' solutions and services they're offering.",
+  },
+  {
+    name: "Pankaj Hingade",
+    company: "Webtech Solutions",
+    quote: "Amazing customer experience with Startup Supports' satisfactory business advisory resolutions.",
+  },
+  {
+    name: "Vinay Rajgire",
+    company: "AtahrvaShree Infra LLP. — Noida",
+    quote: "Excellent deal matching results with time bound delivery and awesome company team support.",
+  },
 ];
 
 /* ── Components ────────────────────────────────────────────────── */
@@ -186,7 +218,7 @@ export default function HomeV1() {
 
                 <div
                   className="mt-12 text-xs tracking-[0.18em] uppercase"
-                  style={{ color: "#DDDAD0", fontFamily: "var(--font-geist-body), monospace" }}
+                  style={{ color: "#9A9A9F", fontFamily: "var(--font-geist-body), monospace" }}
                 >
                   01 / 02 &nbsp;&nbsp; Startup Supports
                 </div>
@@ -610,7 +642,131 @@ export default function HomeV1() {
           </div>
         </section>
 
-        {/* ── 8. CTA ─────────────────────────────────────────── */}
+        {/* ── 8. TESTIMONIALS ───────────────────────────────── */}
+        <section className="py-24 relative" style={{ background: "#fff" }}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <AnimateV1 className="max-w-xl mb-14">
+              <div
+                className="text-xs tracking-[0.15em] uppercase mb-4"
+                style={{ color: "#9A9A9F", fontFamily: "var(--font-geist-body), monospace" }}
+              >
+                — Client Testimonials
+              </div>
+              <h2
+                className="font-extrabold leading-tight"
+                style={{
+                  fontFamily: "var(--font-bricolage), system-ui",
+                  fontSize: "clamp(1.8rem, 1.4rem + 2vw, 2.8rem)",
+                  color: "#0A0A0B",
+                }}
+              >
+                Trusted by founders.{" "}
+                <em
+                  style={{
+                    fontFamily: "var(--font-instrument), Georgia",
+                    fontStyle: "italic",
+                    fontWeight: 400,
+                  }}
+                >
+                  Backed by results.
+                </em>
+              </h2>
+            </AnimateV1>
+
+            <div className="grid sm:grid-cols-2 gap-5">
+              {testimonials.map((t, i) => (
+                <AnimateV1 key={t.name} animation="fade-up" delay={i * 80}>
+                  <Card3D
+                    className="rounded-2xl p-7 h-full"
+                    shadowColor="rgba(34,197,94,0.35)"
+                    style={{ background: "#F4F2ED", border: "1px solid #E8E5DC" }}
+                  >
+                    <div className="flex items-center gap-4 mb-5">
+                      <div
+                        className="w-12 h-12 rounded-full flex items-center justify-center shrink-0 font-bold text-white"
+                        style={{ background: "#0A0A0B", fontFamily: "var(--font-bricolage)" }}
+                      >
+                        {t.name.split(" ").map((n) => n[0]).join("")}
+                      </div>
+                      <div className="min-w-0">
+                        <div
+                          className="font-bold text-sm truncate"
+                          style={{ fontFamily: "var(--font-bricolage), system-ui", color: "#0A0A0B" }}
+                        >
+                          {t.name}
+                        </div>
+                        <div className="text-xs truncate" style={{ color: "#9A9A9F" }}>
+                          {t.company}
+                        </div>
+                      </div>
+                    </div>
+                    <p
+                      className="text-sm leading-relaxed"
+                      style={{ color: "#5A5A5F", fontFamily: "var(--font-instrument), Georgia", fontStyle: "italic" }}
+                    >
+                      &ldquo;{t.quote}&rdquo;
+                    </p>
+                  </Card3D>
+                </AnimateV1>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── 9. COMMUNITY & EVENTS ─────────────────────────── */}
+        <section className="py-24 relative" style={{ background: "#F4F2ED" }}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <AnimateV1 className="max-w-xl mb-14">
+              <div
+                className="text-xs tracking-[0.15em] uppercase mb-4"
+                style={{ color: "#9A9A9F", fontFamily: "var(--font-geist-body), monospace" }}
+              >
+                — Community &amp; Events
+              </div>
+              <h2
+                className="font-extrabold leading-tight"
+                style={{
+                  fontFamily: "var(--font-bricolage), system-ui",
+                  fontSize: "clamp(1.8rem, 1.4rem + 2vw, 2.8rem)",
+                  color: "#0A0A0B",
+                }}
+              >
+                On the ground.{" "}
+                <em
+                  style={{
+                    fontFamily: "var(--font-instrument), Georgia",
+                    fontStyle: "italic",
+                    fontWeight: 400,
+                  }}
+                >
+                  In the room.
+                </em>
+              </h2>
+            </AnimateV1>
+
+            <div className="grid grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 gap-4 lg:h-[560px]">
+              {events.map((ev, i) => (
+                <AnimateV1
+                  key={ev.src}
+                  animation="scale-up"
+                  delay={i * 70}
+                  className={`relative rounded-2xl overflow-hidden aspect-square lg:aspect-auto ${ev.span}`}
+                >
+                  <Image
+                    src={ev.src}
+                    alt={ev.alt}
+                    fill
+                    sizes="(max-width: 1024px) 50vw, 25vw"
+                    className="object-cover"
+                    style={{ border: "1px solid #E8E5DC" }}
+                  />
+                </AnimateV1>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── 10. CTA ────────────────────────────────────────── */}
         <section
           id="contact"
           className="py-32 relative overflow-hidden"

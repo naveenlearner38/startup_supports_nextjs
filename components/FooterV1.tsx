@@ -32,9 +32,9 @@ export default function FooterV1() {
             </p>
             <p
               className="text-xs italic tracking-wide"
-              style={{ color: "#DDDAD0", fontFamily: "var(--font-instrument)" }}
+              style={{ color: "#9A9A9F", fontFamily: "var(--font-instrument)" }}
             >
-              &ldquo;Support Today. Grow Tomorrow.&rdquo;
+              &ldquo;Empowering founders. Fueling growth&rdquo;
             </p>
           </div>
 
@@ -114,10 +114,10 @@ export default function FooterV1() {
           className="mt-12 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4"
           style={{ borderTop: "1px solid #DDDAD0" }}
         >
-          <p className="text-xs tracking-widest uppercase" style={{ color: "#DDDAD0" }}>
+          <p className="text-xs tracking-widest uppercase" style={{ color: "#9A9A9F" }}>
             © {new Date().getFullYear()} Startup Supports. All rights reserved.
           </p>
-          <div className="flex gap-6 text-xs tracking-widest uppercase" style={{ color: "#DDDAD0" }}>
+          <div className="flex gap-6 text-xs tracking-widest uppercase" style={{ color: "#9A9A9F" }}>
             <Link href="#" className="hover:text-ink-3 transition-colors">Privacy</Link>
             <Link href="#" className="hover:text-ink-3 transition-colors">Terms</Link>
             <span>Made in India</span>
