@@ -153,7 +153,7 @@ export default function FreightV1() {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="mailto:info@startupsupports.in?subject=Freight Forwarding Enquiry"
+                href="mailto:info@startupsupports.com?subject=Freight Forwarding Enquiry"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 font-bold rounded-full transition-all hover:-translate-y-0.5"
                 style={{ background: "#22c55e", color: "#fff", boxShadow: "0 8px 28px rgba(34,197,94,0.4)" }}
               >
@@ -347,7 +347,7 @@ export default function FreightV1() {
                     Share your cargo details and destination — we respond with a competitive quote within 24 hours.
                   </p>
                   <a
-                    href="mailto:info@startupsupports.in?subject=Freight Forwarding Enquiry"
+                    href="mailto:info@startupsupports.com?subject=Freight Forwarding Enquiry"
                     className="w-full flex items-center justify-center py-4 font-bold rounded-full transition-all hover:-translate-y-0.5 mb-3"
                     style={{ background: "#22c55e", color: "#fff", boxShadow: "0 8px 28px rgba(34,197,94,0.35)" }}
                   >

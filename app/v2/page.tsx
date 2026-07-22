@@ -508,7 +508,7 @@ export default function HomePage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="mailto:info@startupsupports.in"
+                  href="mailto:info@startupsupports.com"
                   className="inline-flex items-center justify-center gap-2 px-9 py-4 bg-white text-brand-700 font-bold rounded-full hover:bg-brand-50 transition-all hover:shadow-xl hover:-translate-y-0.5"
                 >
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -537,7 +537,7 @@ export default function HomePage() {
         {/* ping ring */}
         <span className="absolute inset-0 rounded-full bg-brand-500 animate-ping opacity-25" />
         <a
-          href="mailto:info@startupsupports.in?subject=Discovery Call Request"
+          href="mailto:info@startupsupports.com?subject=Discovery Call Request"
           className="relative flex items-center gap-2.5 px-5 py-3 bg-brand-500 hover:bg-brand-600 text-white font-semibold text-sm rounded-full shadow-lg shadow-brand-500/50 hover:shadow-xl hover:shadow-brand-500/40 transition-all hover:-translate-y-0.5"
         >
           <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">

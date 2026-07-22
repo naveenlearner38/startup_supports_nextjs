@@ -208,7 +208,7 @@ export default function FreightForwardingPage() {
                     Share your cargo details and destination — we will respond with a competitive quote within 24 hours.
                   </p>
                   <a
-                    href="mailto:info@startupsupports.in?subject=Freight Forwarding Enquiry"
+                    href="mailto:info@startupsupports.com?subject=Freight Forwarding Enquiry"
                     className="w-full flex items-center justify-center py-4 bg-brand-500 hover:bg-brand-600 text-white font-bold rounded-full transition-all hover:shadow-xl hover:-translate-y-0.5 mb-3"
                   >
                     Request a Quote

@@ -110,7 +110,7 @@ export default function DocumentationV1() {
 
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a
-                    href="mailto:info@startupsupports.in?subject=Export Documentation Enquiry"
+                    href="mailto:info@startupsupports.com?subject=Export Documentation Enquiry"
                     className="inline-flex items-center justify-center gap-2 px-8 py-4 font-bold rounded-full transition-all hover:-translate-y-0.5"
                     style={{ background: "#22c55e", color: "#fff", boxShadow: "0 8px 28px rgba(34,197,94,0.4)" }}
                   >
@@ -336,7 +336,7 @@ export default function DocumentationV1() {
                     Tell us where you want to export, and we will map every registration you need.
                   </p>
                   <a
-                    href="mailto:info@startupsupports.in?subject=Export Documentation Enquiry"
+                    href="mailto:info@startupsupports.com?subject=Export Documentation Enquiry"
                     className="w-full flex items-center justify-center py-4 font-bold rounded-full transition-all hover:-translate-y-0.5 mb-3"
                     style={{ background: "#22c55e", color: "#fff", boxShadow: "0 8px 28px rgba(34,197,94,0.35)" }}
                   >

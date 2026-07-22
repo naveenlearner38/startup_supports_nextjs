@@ -111,7 +111,7 @@ export default function BusinessPlanV1() {
 
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a
-                    href="mailto:info@startupsupports.in?subject=Business Plan Enquiry"
+                    href="mailto:info@startupsupports.com?subject=Business Plan Enquiry"
                     className="inline-flex items-center justify-center gap-2 px-8 py-4 font-bold rounded-full transition-all hover:-translate-y-0.5"
                     style={{ background: "#0A0A0B", color: "#fff", boxShadow: "0 8px 24px rgba(0,0,0,0.15)" }}
                   >
@@ -318,7 +318,7 @@ export default function BusinessPlanV1() {
                     Free 30-minute discovery call to scope your requirements and discuss the right financial model for your stage.
                   </p>
                   <a
-                    href="mailto:info@startupsupports.in?subject=Business Plan Enquiry"
+                    href="mailto:info@startupsupports.com?subject=Business Plan Enquiry"
                     className="w-full flex items-center justify-center gap-2 py-4 font-bold rounded-full transition-all hover:-translate-y-0.5 mb-3"
                     style={{ background: "#22c55e", color: "#fff", boxShadow: "0 8px 28px rgba(34,197,94,0.35)" }}
                   >

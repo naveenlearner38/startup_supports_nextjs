@@ -225,7 +225,7 @@ export default function DocumentationPage() {
                     Tell us where you want to export, and we will map every registration you need and file them for you.
                   </p>
                   <a
-                    href="mailto:info@startupsupports.in?subject=Export Documentation Enquiry"
+                    href="mailto:info@startupsupports.com?subject=Export Documentation Enquiry"
                     className="w-full flex items-center justify-center py-4 bg-brand-500 hover:bg-brand-600 text-white font-bold rounded-full transition-all hover:shadow-xl hover:-translate-y-0.5 mb-3"
                   >
                     Start Your Registration

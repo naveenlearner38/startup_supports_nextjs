@@ -215,7 +215,7 @@ export default function PitchDeckPage() {
                     Reach out today and get a free 30-minute consultation on your pitch narrative.
                   </p>
                   <a
-                    href="mailto:info@startupsupports.in?subject=Pitch Deck Enquiry"
+                    href="mailto:info@startupsupports.com?subject=Pitch Deck Enquiry"
                     className="w-full flex items-center justify-center gap-2 py-4 bg-brand-500 hover:bg-brand-600 text-white font-bold rounded-full transition-all hover:shadow-xl hover:shadow-brand-500/30 hover:-translate-y-0.5 mb-3"
                   >
                     Start Your Pitch Deck

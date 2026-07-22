@@ -807,7 +807,7 @@ export default function HomeV1() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="mailto:info@startupsupports.in"
+                  href="mailto:info@startupsupports.com"
                   className="inline-flex items-center justify-center gap-2 px-9 py-4 font-bold rounded-full transition-all hover:-translate-y-0.5"
                   style={{ background: "#0A0A0B", color: "#fff", boxShadow: "0 8px 24px rgba(0,0,0,0.15)" }}
                 >
@@ -838,7 +838,7 @@ export default function HomeV1() {
             style={{ background: "#22c55e", animation: "ping 2s cubic-bezier(0,0,0.2,1) infinite" }}
           />
           <a
-            href="mailto:info@startupsupports.in?subject=Discovery Call"
+            href="mailto:info@startupsupports.com?subject=Discovery Call"
             className="relative flex items-center gap-2 px-5 py-3 text-sm font-semibold rounded-full transition-all hover:-translate-y-0.5"
             style={{
               background: "#22c55e",

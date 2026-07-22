@@ -189,7 +189,7 @@ export default function BusinessPlanPage() {
                     Free 30-minute discovery call to scope your requirements and discuss the right financial model for your stage.
                   </p>
                   <a
-                    href="mailto:info@startupsupports.in?subject=Business Plan Enquiry"
+                    href="mailto:info@startupsupports.com?subject=Business Plan Enquiry"
                     className="w-full flex items-center justify-center gap-2 py-4 bg-brand-500 hover:bg-brand-600 text-white font-bold rounded-full transition-all hover:shadow-xl hover:shadow-brand-500/30 hover:-translate-y-0.5 mb-3"
                   >
                     Start Your Business Plan

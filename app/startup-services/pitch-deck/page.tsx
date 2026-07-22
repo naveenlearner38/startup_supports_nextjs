@@ -106,7 +106,7 @@ export default function PitchDeckV1() {
 
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a
-                    href="mailto:info@startupsupports.in?subject=Pitch Deck Enquiry"
+                    href="mailto:info@startupsupports.com?subject=Pitch Deck Enquiry"
                     className="inline-flex items-center justify-center gap-2 px-8 py-4 font-bold rounded-full transition-all hover:-translate-y-0.5"
                     style={{ background: "#22c55e", color: "#fff", boxShadow: "0 8px 28px rgba(34,197,94,0.4)" }}
                   >
@@ -382,7 +382,7 @@ export default function PitchDeckV1() {
                     Get a free 30-minute consultation on your pitch narrative.
                   </p>
                   <a
-                    href="mailto:info@startupsupports.in?subject=Pitch Deck Enquiry"
+                    href="mailto:info@startupsupports.com?subject=Pitch Deck Enquiry"
                     className="w-full flex items-center justify-center gap-2 py-4 font-bold rounded-full transition-all hover:-translate-y-0.5 mb-3"
                     style={{ background: "#22c55e", color: "#fff", boxShadow: "0 8px 28px rgba(34,197,94,0.35)" }}
                   >

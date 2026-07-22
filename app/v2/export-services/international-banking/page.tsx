@@ -196,7 +196,7 @@ export default function InternationalBankingPage() {
                     Book a consultation and we will audit your current banking setup and identify every risk and opportunity.
                   </p>
                   <a
-                    href="mailto:info@startupsupports.in?subject=International Banking Enquiry"
+                    href="mailto:info@startupsupports.com?subject=International Banking Enquiry"
                     className="w-full flex items-center justify-center py-4 bg-brand-500 hover:bg-brand-600 text-white font-bold rounded-full transition-all hover:shadow-xl hover:-translate-y-0.5 mb-3"
                   >
                     Book a Consultation
