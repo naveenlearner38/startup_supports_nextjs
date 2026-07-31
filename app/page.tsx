@@ -817,7 +817,7 @@ export default function HomeV1() {
                   Email Us
                 </a>
                 <a
-                  href="tel:+91XXXXXXXXXX"
+                  href="tel:+918149574967"
                   className="inline-flex items-center justify-center gap-2 px-9 py-4 font-bold rounded-full transition-all hover:-translate-y-0.5 hover:border-brand-500"
                   style={{ border: "1.5px solid #DDDAD0", color: "#0A0A0B" }}
                 >
