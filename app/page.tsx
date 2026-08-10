@@ -28,14 +28,14 @@ const capabilities = [
     n: "01",
     title: "Startup Foundations",
     desc: "From idea to investor-ready — pitch decks, business plans, company incorporation, DPIIT recognition, and DPR.",
-    tags: ["Pitch Deck", "Business Plan", "Incorporation", "DPIIT"],
+    tags: ["Pitch Deck", "Business Plan", "Incorporation", "DPIIT", "Fundraising Support", "Growth Strategy"],
     href: "/#startup",
   },
   {
     n: "02",
     title: "Export Documentation",
     desc: "IEC, GST+PAN, AD Code, RCMC — every registration an exporter needs, filed end-to-end by our experts.",
-    tags: ["IEC", "RCMC", "AD Code", "GST"],
+    tags: ["IEC", "RCMC", "AD Code", "GST", "DGFT Compliance", "Global Trade Strategy"],
     href: "/export-services/documentation",
   },
   {
@@ -51,6 +51,39 @@ const capabilities = [
     desc: "Forex accounts, Letters of Credit, e-BRC, FEMA compliance — protect every dollar of your export earnings.",
     tags: ["LC Facilitation", "Forex", "e-BRC", "EEFC"],
     href: "/export-services/international-banking",
+  },
+];
+
+const serviceTracks = [
+  {
+    label: "Export & Import Business Consultancy",
+    desc: "Helping Indian businesses trade globally — from first shipment to sustained international expansion.",
+    items: [
+      "IEC Registration Assistance",
+      "Product & Market Research",
+      "International Buyer & Supplier Identification",
+      "Export Documentation",
+      "DGFT & Compliance Guidance",
+      "Global Trade Strategy",
+      "Import Process Consultation",
+      "International Business Expansion",
+    ],
+    href: "/export-services/documentation",
+  },
+  {
+    label: "Startup Consultancy",
+    desc: "Helping founders go from idea to investor-ready — with the strategy, story, and structure to back it.",
+    items: [
+      "Startup Registration",
+      "Business Strategy",
+      "Fundraising Support",
+      "Investor Pitch Deck",
+      "Financial Modelling",
+      "Market Validation",
+      "Business Development",
+      "Growth Strategy",
+    ],
+    href: "/#startup",
   },
 ];
 
@@ -168,15 +201,14 @@ export default function HomeV1() {
 
                 {/* Headline */}
                 <h1
-                  className="font-extrabold leading-[0.9] tracking-tight mb-6"
+                  className="font-extrabold leading-[1.05] tracking-tight mb-6"
                   style={{
                     fontFamily: "var(--font-bricolage), system-ui",
-                    fontSize: "clamp(3rem, 2.2rem + 4vw, 5.5rem)",
+                    fontSize: "clamp(2.2rem, 1.6rem + 2.6vw, 3.75rem)",
                     color: "#0A0A0B",
                   }}
                 >
-                  Build Bold.{" "}
-                  <br />
+                  Turning Business Ideas into{" "}
                   <em
                     style={{
                       fontFamily: "var(--font-instrument), Georgia, serif",
@@ -185,9 +217,8 @@ export default function HomeV1() {
                       color: "#0A0A0B",
                     }}
                   >
-                    Export
-                  </em>{" "}
-                  Global
+                    Global Success Stories
+                  </em>
                   <span className="text-brand-500">.</span>
                 </h1>
 
@@ -195,8 +226,8 @@ export default function HomeV1() {
                   className="text-lg leading-relaxed max-w-lg mb-10"
                   style={{ color: "rgba(10,10,11,0.6)" }}
                 >
-                  India&apos;s dual-service business partner — from zero to funded startup,
-                  and from local business to international exporter.
+                  At Startup Supports, we help entrepreneurs, startups, SMEs, and growing businesses
+                  build, scale, and expand globally.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -227,6 +258,67 @@ export default function HomeV1() {
               {/* Right — floating 3D cards */}
               <div className="hidden lg:block">
                 <HeroCards />
+              </div>
+            </div>
+
+            {/* Our Services */}
+            <div className="mt-20">
+              <AnimateV1 className="max-w-2xl mb-6">
+                <div
+                  className="text-xs tracking-[0.15em] uppercase mb-4"
+                  style={{ color: "#9A9A9F", fontFamily: "var(--font-geist-body), monospace" }}
+                >
+                  — Our Services
+                </div>
+                <p className="text-lg leading-relaxed" style={{ color: "rgba(10,10,11,0.6)" }}>
+                  Whether you&apos;re launching your first startup or planning to take your products
+                  to international markets, we provide end-to-end strategic consulting to help you
+                  grow with confidence.
+                </p>
+              </AnimateV1>
+
+              <div className="grid lg:grid-cols-2 gap-6">
+                {serviceTracks.map((track, i) => (
+                  <AnimateV1 key={track.label} animation="fade-up" delay={i * 100}>
+                    <Card3D
+                      className="rounded-2xl p-8 h-full"
+                      shadowColor="rgba(34,197,94,0.35)"
+                      style={{ background: "#fff", border: "1px solid #E8E5DC" }}
+                    >
+                      <h3
+                        className="font-bold mb-2"
+                        style={{ fontFamily: "var(--font-bricolage), system-ui", color: "#0A0A0B", fontSize: "1.25rem" }}
+                      >
+                        {track.label}
+                      </h3>
+                      <p className="text-sm leading-relaxed mb-6" style={{ color: "#9A9A9F" }}>
+                        {track.desc}
+                      </p>
+                      <div className="grid sm:grid-cols-2 gap-2.5">
+                        {track.items.map((item) => (
+                          <div key={item} className="flex items-start gap-2.5">
+                            <div className="w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5" style={{ background: "rgba(34,197,94,0.15)" }}>
+                              <svg className="w-2.5 h-2.5" style={{ color: "#22c55e" }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                              </svg>
+                            </div>
+                            <span className="text-sm" style={{ color: "#2A2A2E" }}>{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                      <Link
+                        href={track.href}
+                        className="inline-flex items-center gap-1.5 mt-6 text-sm font-semibold transition-colors hover:text-brand-600"
+                        style={{ color: "#0A0A0B" }}
+                      >
+                        Explore {track.label}
+                        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                      </Link>
+                    </Card3D>
+                  </AnimateV1>
+                ))}
               </div>
             </div>
           </div>

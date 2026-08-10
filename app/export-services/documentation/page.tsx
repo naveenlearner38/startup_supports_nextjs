@@ -38,6 +38,15 @@ const documents = [
   },
 ];
 
+const alsoIncluded = [
+  "Product & Market Research",
+  "International Buyer & Supplier Identification",
+  "DGFT & Compliance Guidance",
+  "Global Trade Strategy",
+  "Import Process Consultation",
+  "International Business Expansion",
+];
+
 const process = [
   { n: "01", title: "Requirement Assessment", desc: "We map your business type, products, HS codes, and export destinations to identify every registration you need." },
   { n: "02", title: "Document Checklist", desc: "You receive a precise checklist of documents to gather. We handle the filing — you supply the source documents." },
@@ -351,6 +360,49 @@ export default function DocumentationV1() {
                   </Link>
                 </Card3D>
               </AnimateV1>
+            </div>
+          </div>
+        </section>
+
+        {/* ── ALSO PART OF OUR CONSULTANCY ── */}
+        <section className="py-24" style={{ background: "#fff" }}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <AnimateV1 className="max-w-2xl mb-10">
+              <div
+                className="text-xs tracking-[0.15em] uppercase mb-4"
+                style={{ color: "#9A9A9F", fontFamily: "var(--font-geist-body), monospace" }}
+              >
+                — Beyond Documentation
+              </div>
+              <h2
+                className="font-extrabold leading-tight mb-4"
+                style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(1.6rem, 1.3rem + 1.6vw, 2.4rem)", color: "#0A0A0B" }}
+              >
+                Part of a{" "}
+                <em style={{ fontFamily: "var(--font-instrument)", fontStyle: "italic", fontWeight: 400, color: "#22c55e" }}>
+                  full trade consultancy
+                </em>
+              </h2>
+              <p style={{ color: "#9A9A9F" }}>
+                Documentation is just one piece. Our export &amp; import consultancy also covers:
+              </p>
+            </AnimateV1>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              {alsoIncluded.map((item) => (
+                <div
+                  key={item}
+                  className="flex items-start gap-2.5 p-4 rounded-xl"
+                  style={{ background: "#F4F2ED", border: "1px solid #E8E5DC" }}
+                >
+                  <div className="w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5" style={{ background: "rgba(34,197,94,0.15)" }}>
+                    <svg className="w-2.5 h-2.5" style={{ color: "#22c55e" }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <span className="text-sm" style={{ color: "#2A2A2E" }}>{item}</span>
+                </div>
+              ))}
             </div>
           </div>
         </section>
