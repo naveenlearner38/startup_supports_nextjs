@@ -285,12 +285,12 @@ export default function HomeV1() {
                       shadowColor="rgba(34,197,94,0.35)"
                       style={{ background: "#fff", border: "1px solid #E8E5DC" }}
                     >
-                      <h3
+                      <h2
                         className="font-bold mb-2"
                         style={{ fontFamily: "var(--font-bricolage), system-ui", color: "#0A0A0B", fontSize: "1.25rem" }}
                       >
                         {track.label}
-                      </h3>
+                      </h2>
                       <p className="text-sm leading-relaxed mb-6" style={{ color: "#9A9A9F" }}>
                         {track.desc}
                       </p>
@@ -351,7 +351,7 @@ export default function HomeV1() {
             <AnimateV1 className="text-center mb-16">
               <div
                 className="text-xs tracking-[0.15em] uppercase mb-4"
-                style={{ color: "#5A5A5F", fontFamily: "var(--font-geist-body), monospace" }}
+                style={{ color: "#9A9A9F", fontFamily: "var(--font-geist-body), monospace" }}
               >
                 — By the Numbers
               </div>
@@ -531,7 +531,7 @@ export default function HomeV1() {
               <AnimateV1 animation="slide-left">
                 <div
                   className="text-xs tracking-[0.15em] uppercase mb-6"
-                  style={{ color: "#5A5A5F", fontFamily: "var(--font-geist-body), monospace" }}
+                  style={{ color: "#9A9A9F", fontFamily: "var(--font-geist-body), monospace" }}
                 >
                   — Export Division
                 </div>
@@ -561,7 +561,7 @@ export default function HomeV1() {
                   <Link
                     href="/export-services/documentation"
                     className="inline-flex items-center gap-2 px-7 py-3.5 font-semibold rounded-full transition-all hover:-translate-y-0.5"
-                    style={{ background: "#22c55e", color: "#fff", boxShadow: "0 4px 20px rgba(34,197,94,0.4)" }}
+                    style={{ background: "#15803d", color: "#fff", boxShadow: "0 4px 20px rgba(21,128,61,0.4)" }}
                   >
                     Start Exporting →
                   </Link>
@@ -596,7 +596,7 @@ export default function HomeV1() {
                       <Link
                         href={item.href}
                         className="text-xs tracking-widest uppercase transition-colors hover:text-brand-400"
-                        style={{ color: "#5A5A5F" }}
+                        style={{ color: "#9A9A9F" }}
                       >
                         Explore →
                       </Link>
@@ -688,7 +688,7 @@ export default function HomeV1() {
               >
                 How We Work
               </h2>
-              <p className="mt-3" style={{ color: "#5A5A5F" }}>Simple process. Serious results.</p>
+              <p className="mt-3" style={{ color: "#9A9A9F" }}>Simple process. Serious results.</p>
             </AnimateV1>
 
             <div className="grid md:grid-cols-3 gap-6">
@@ -726,7 +726,7 @@ export default function HomeV1() {
                     >
                       {step.t}
                     </h3>
-                    <p className="text-sm leading-relaxed" style={{ color: "#5A5A5F" }}>{step.d}</p>
+                    <p className="text-sm leading-relaxed" style={{ color: "#9A9A9F" }}>{step.d}</p>
                   </Card3D>
                 </AnimateV1>
               ))}
@@ -933,9 +933,9 @@ export default function HomeV1() {
             href="mailto:info@startupsupports.com?subject=Discovery Call"
             className="relative flex items-center gap-2 px-5 py-3 text-sm font-semibold rounded-full transition-all hover:-translate-y-0.5"
             style={{
-              background: "#22c55e",
+              background: "#15803d",
               color: "#fff",
-              boxShadow: "0 8px 24px rgba(34,197,94,0.5)",
+              boxShadow: "0 8px 24px rgba(21,128,61,0.5)",
             }}
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

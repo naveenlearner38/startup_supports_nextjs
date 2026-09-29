@@ -2,14 +2,26 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import NavbarV1 from "@/components/NavbarV1";
+import JsonLd from "@/components/JsonLd";
+import { pageMetadata, serviceJsonLd } from "@/lib/seo";
 import FooterV1 from "@/components/FooterV1";
 import AnimateV1 from "@/components/AnimateV1";
 import Card3D from "@/components/Card3D";
 
-export const metadata: Metadata = {
-  title: "Export Documentation Service — Startup Supports V1",
-  description: "IEC, GST+PAN, AD Code, RCMC — all your export licences and registrations handled end-to-end.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "IEC & RCMC Export Documentation Services",
+  description:
+    "Get your IEC, GST+PAN, AD Code and RCMC handled end-to-end by experts — accurate filing, DGFT compliance guidance and fast turnaround for Indian exporters.",
+  path: "/export-services/documentation",
+});
+
+const jsonLd = serviceJsonLd({
+  name: "Export Documentation Service",
+  description:
+    "Get your IEC, GST+PAN, AD Code and RCMC handled end-to-end by experts — accurate filing, DGFT compliance guidance and fast turnaround for Indian exporters.",
+  path: "/export-services/documentation",
+  serviceType: "Export documentation and registrations",
+});
 
 const documents = [
   {
@@ -71,6 +83,7 @@ export default function DocumentationV1() {
   return (
     <>
       <NavbarV1 />
+      <JsonLd data={jsonLd} />
       <main>
 
         {/* ── HERO — navy official/document feel ── */}
@@ -121,7 +134,7 @@ export default function DocumentationV1() {
                   <a
                     href="mailto:info@startupsupports.com?subject=Export Documentation Enquiry"
                     className="inline-flex items-center justify-center gap-2 px-8 py-4 font-bold rounded-full transition-all hover:-translate-y-0.5"
-                    style={{ background: "#22c55e", color: "#fff", boxShadow: "0 8px 28px rgba(34,197,94,0.4)" }}
+                    style={{ background: "#15803d", color: "#fff", boxShadow: "0 8px 28px rgba(34,197,94,0.4)" }}
                   >
                     Start Your Registration →
                   </a>
@@ -347,7 +360,7 @@ export default function DocumentationV1() {
                   <a
                     href="mailto:info@startupsupports.com?subject=Export Documentation Enquiry"
                     className="w-full flex items-center justify-center py-4 font-bold rounded-full transition-all hover:-translate-y-0.5 mb-3"
-                    style={{ background: "#22c55e", color: "#fff", boxShadow: "0 8px 28px rgba(34,197,94,0.35)" }}
+                    style={{ background: "#15803d", color: "#fff", boxShadow: "0 8px 28px rgba(34,197,94,0.35)" }}
                   >
                     Start Your Registration
                   </a>

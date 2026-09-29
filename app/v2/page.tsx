@@ -1,7 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/v2/Navbar";
 import Footer from "@/components/v2/Footer";
 import AnimateOnScroll from "@/components/v2/AnimateOnScroll";
+
+export const metadata: Metadata = {
+  title: { absolute: "Startup Supports — Build Bold. Export Global." },
+};
 
 /* ─── Data ─────────────────────────────────────────────────── */
 

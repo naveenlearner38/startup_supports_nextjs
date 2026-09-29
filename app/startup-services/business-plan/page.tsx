@@ -2,15 +2,27 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import NavbarV1 from "@/components/NavbarV1";
+import JsonLd from "@/components/JsonLd";
+import { pageMetadata, serviceJsonLd } from "@/lib/seo";
 import FooterV1 from "@/components/FooterV1";
 import AnimateV1 from "@/components/AnimateV1";
 import Card3D from "@/components/Card3D";
 import Counter from "@/components/Counter";
 
-export const metadata: Metadata = {
-  title: "Business Plan & Financial Modeling — Startup Supports V1",
-  description: "Comprehensive business plans and financial models for Indian startups. Bank-ready, investor-ready, and built for execution.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Business Plan & Financial Modelling",
+  description:
+    "Bank-ready and investor-ready business plans with 5-year financial models for Indian startups — built for execution, Mudra, SIDBI and Startup India.",
+  path: "/startup-services/business-plan",
+});
+
+const jsonLd = serviceJsonLd({
+  name: "Business Plan & Financial Modelling",
+  description:
+    "Bank-ready and investor-ready business plans with 5-year financial models for Indian startups — built for execution, Mudra, SIDBI and Startup India.",
+  path: "/startup-services/business-plan",
+  serviceType: "Business plan and financial modelling",
+});
 
 const process = [
   { n: "01", title: "Business Analysis", desc: "Market, unit economics, cost structure, growth drivers — a factual foundation for every projection." },
@@ -64,6 +76,7 @@ export default function BusinessPlanV1() {
   return (
     <>
       <NavbarV1 />
+      <JsonLd data={jsonLd} />
       <main>
 
         {/* ── HERO — linen + data feel ── */}
@@ -156,7 +169,7 @@ export default function BusinessPlanV1() {
                         <Counter target={parseInt(s.n)} suffix={s.suffix} />
                       </div>
                       <div className="font-bold text-sm mb-1" style={{ color: "#0A0A0B" }}>{s.label}</div>
-                      <div className="text-xs" style={{ color: "#9A9A9F" }}>{s.sub}</div>
+                      <div className="text-xs" style={{ color: "#66666B" }}>{s.sub}</div>
                     </Card3D>
                   </AnimateV1>
                 ))}
@@ -176,7 +189,7 @@ export default function BusinessPlanV1() {
               <AnimateV1 animation="slide-left">
                 <div
                   className="text-xs tracking-[0.15em] uppercase mb-5"
-                  style={{ color: "#5A5A5F", fontFamily: "var(--font-geist-body), monospace" }}
+                  style={{ color: "#9A9A9F", fontFamily: "var(--font-geist-body), monospace" }}
                 >
                   — The Story Behind the Numbers
                 </div>
@@ -212,7 +225,7 @@ export default function BusinessPlanV1() {
                         >
                           {a.label}
                         </div>
-                        <div className="text-sm" style={{ color: "#5A5A5F" }}>{a.desc}</div>
+                        <div className="text-sm" style={{ color: "#9A9A9F" }}>{a.desc}</div>
                       </div>
                     </div>
                   </AnimateV1>
@@ -328,7 +341,7 @@ export default function BusinessPlanV1() {
                   <a
                     href="mailto:info@startupsupports.com?subject=Business Plan Enquiry"
                     className="w-full flex items-center justify-center gap-2 py-4 font-bold rounded-full transition-all hover:-translate-y-0.5 mb-3"
-                    style={{ background: "#22c55e", color: "#fff", boxShadow: "0 8px 28px rgba(34,197,94,0.35)" }}
+                    style={{ background: "#15803d", color: "#fff", boxShadow: "0 8px 28px rgba(34,197,94,0.35)" }}
                   >
                     Start Your Business Plan
                   </a>

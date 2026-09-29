@@ -2,14 +2,26 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import NavbarV1 from "@/components/NavbarV1";
+import JsonLd from "@/components/JsonLd";
+import { pageMetadata, serviceJsonLd } from "@/lib/seo";
 import FooterV1 from "@/components/FooterV1";
 import AnimateV1 from "@/components/AnimateV1";
 import Card3D from "@/components/Card3D";
 
-export const metadata: Metadata = {
-  title: "Pitch Deck Creation — Startup Supports V1",
-  description: "Investor-ready pitch decks crafted by experts. We help Indian startups tell compelling stories that secure funding.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Investor Pitch Deck Design for Startups",
+  description:
+    "Investor-ready pitch decks for Indian startups — narrative-first slides, financial summary and speaker notes, delivered in 7–10 business days.",
+  path: "/startup-services/pitch-deck",
+});
+
+const jsonLd = serviceJsonLd({
+  name: "Pitch Deck Creation",
+  description:
+    "Investor-ready pitch decks for Indian startups — narrative-first slides, financial summary and speaker notes, delivered in 7–10 business days.",
+  path: "/startup-services/pitch-deck",
+  serviceType: "Pitch deck design",
+});
 
 const process = [
   { n: "01", title: "Discovery Call", desc: "We deep-dive into your business model, target market, traction, team, and funding ask in a 60-minute session." },
@@ -54,6 +66,7 @@ export default function PitchDeckV1() {
   return (
     <>
       <NavbarV1 />
+      <JsonLd data={jsonLd} />
       <main>
 
         {/* ── HERO — full dark, editorial magazine ── */}
@@ -70,7 +83,7 @@ export default function PitchDeckV1() {
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 flex flex-col justify-center min-h-[calc(100vh-64px)]">
             <div
               className="text-xs tracking-[0.18em] uppercase mb-8"
-              style={{ color: "#5A5A5F", fontFamily: "var(--font-geist-body), monospace" }}
+              style={{ color: "#9A9A9F", fontFamily: "var(--font-geist-body), monospace" }}
             >
               — Startup Services · Core Service · 01
             </div>
@@ -108,7 +121,7 @@ export default function PitchDeckV1() {
                   <a
                     href="mailto:info@startupsupports.com?subject=Pitch Deck Enquiry"
                     className="inline-flex items-center justify-center gap-2 px-8 py-4 font-bold rounded-full transition-all hover:-translate-y-0.5"
-                    style={{ background: "#22c55e", color: "#fff", boxShadow: "0 8px 28px rgba(34,197,94,0.4)" }}
+                    style={{ background: "#15803d", color: "#fff", boxShadow: "0 8px 28px rgba(34,197,94,0.4)" }}
                   >
                     Start Your Deck →
                   </a>
@@ -166,7 +179,7 @@ export default function PitchDeckV1() {
                   >
                     {s.n}
                   </span>
-                  <span className="text-xs tracking-widest uppercase" style={{ color: "#5A5A5F", fontFamily: "var(--font-geist-body), monospace" }}>
+                  <span className="text-xs tracking-widest uppercase" style={{ color: "#9A9A9F", fontFamily: "var(--font-geist-body), monospace" }}>
                     {s.l}
                   </span>
                 </div>
@@ -205,7 +218,7 @@ export default function PitchDeckV1() {
                       <div className="w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5" style={{ background: "rgba(239,68,68,0.1)" }}>
                         <span style={{ color: "#ef4444", fontSize: 10 }}>✕</span>
                       </div>
-                      <p className="text-sm leading-relaxed" style={{ color: "#5A5A5F" }}>{p}</p>
+                      <p className="text-sm leading-relaxed" style={{ color: "#9A9A9F" }}>{p}</p>
                     </div>
                   ))}
                 </div>
@@ -277,7 +290,7 @@ export default function PitchDeckV1() {
               >
                 Our Process
               </h2>
-              <p className="mt-3 text-lg" style={{ color: "#5A5A5F" }}>
+              <p className="mt-3 text-lg" style={{ color: "#9A9A9F" }}>
                 Blank page to investor-ready in{" "}
                 <em style={{ fontFamily: "var(--font-instrument)", fontStyle: "italic", color: "#22c55e" }}>7–10 business days</em>.
               </p>
@@ -309,7 +322,7 @@ export default function PitchDeckV1() {
                     >
                       {step.title}
                     </h3>
-                    <p className="text-sm leading-relaxed" style={{ color: "#5A5A5F" }}>{step.desc}</p>
+                    <p className="text-sm leading-relaxed" style={{ color: "#9A9A9F" }}>{step.desc}</p>
                   </Card3D>
                 </AnimateV1>
               ))}
@@ -384,7 +397,7 @@ export default function PitchDeckV1() {
                   <a
                     href="mailto:info@startupsupports.com?subject=Pitch Deck Enquiry"
                     className="w-full flex items-center justify-center gap-2 py-4 font-bold rounded-full transition-all hover:-translate-y-0.5 mb-3"
-                    style={{ background: "#22c55e", color: "#fff", boxShadow: "0 8px 28px rgba(34,197,94,0.35)" }}
+                    style={{ background: "#15803d", color: "#fff", boxShadow: "0 8px 28px rgba(34,197,94,0.35)" }}
                   >
                     Start Your Pitch Deck
                   </a>

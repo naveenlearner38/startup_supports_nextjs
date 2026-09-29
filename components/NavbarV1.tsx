@@ -176,8 +176,8 @@ export default function NavbarV1() {
           <Image
             src="/logo.png"
             alt="Startup Supports"
-            width={140}
-            height={44}
+            width={112}
+            height={72}
             className="h-9 w-auto object-contain"
             priority
           />

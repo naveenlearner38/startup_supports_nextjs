@@ -25,14 +25,14 @@ export default function FooterV1() {
           {/* Brand */}
           <div>
             <div className="mb-5">
-              <Image src="/logo.png" alt="Startup Supports" width={140} height={44} className="h-9 w-auto object-contain" />
+              <Image src="/logo.png" alt="Startup Supports" width={112} height={72} className="h-9 w-auto object-contain" />
             </div>
-            <p className="text-sm leading-relaxed mb-4" style={{ color: "#9A9A9F" }}>
+            <p className="text-sm leading-relaxed mb-4" style={{ color: "#66666B" }}>
               India&apos;s trusted partner for startup growth and global trade excellence.
             </p>
             <p
               className="text-xs italic tracking-wide"
-              style={{ color: "#9A9A9F", fontFamily: "var(--font-instrument)" }}
+              style={{ color: "#66666B", fontFamily: "var(--font-instrument)" }}
             >
               &ldquo;Empowering founders. Fueling growth&rdquo;
             </p>
@@ -40,13 +40,13 @@ export default function FooterV1() {
 
           {/* Startup */}
           <div>
-            <h4
+            <h3
               className="text-xs uppercase tracking-widest font-semibold mb-5"
               style={{ color: "#0A0A0B", fontFamily: "var(--font-bricolage)" }}
             >
               Startup Services
-            </h4>
-            <ul className="space-y-2.5 text-sm" style={{ color: "#9A9A9F" }}>
+            </h3>
+            <ul className="space-y-2.5 text-sm" style={{ color: "#66666B" }}>
               {startup.map((l) => (
                 <li key={l.label}>
                   <Link href={l.href} className="hover:text-brand-500 transition-colors">
@@ -59,13 +59,13 @@ export default function FooterV1() {
 
           {/* Export */}
           <div>
-            <h4
+            <h3
               className="text-xs uppercase tracking-widest font-semibold mb-5"
               style={{ color: "#0A0A0B", fontFamily: "var(--font-bricolage)" }}
             >
               Export Services
-            </h4>
-            <ul className="space-y-2.5 text-sm" style={{ color: "#9A9A9F" }}>
+            </h3>
+            <ul className="space-y-2.5 text-sm" style={{ color: "#66666B" }}>
               {exports.map((l) => (
                 <li key={l.label}>
                   <Link href={l.href} className="hover:text-brand-500 transition-colors">
@@ -78,13 +78,13 @@ export default function FooterV1() {
 
           {/* Contact */}
           <div>
-            <h4
+            <h3
               className="text-xs uppercase tracking-widest font-semibold mb-5"
               style={{ color: "#0A0A0B", fontFamily: "var(--font-bricolage)" }}
             >
               Get In Touch
-            </h4>
-            <ul className="space-y-3 text-sm" style={{ color: "#9A9A9F" }}>
+            </h3>
+            <ul className="space-y-3 text-sm" style={{ color: "#66666B" }}>
               <li>
                 <a href="mailto:info@startupsupports.com" className="hover:text-brand-500 transition-colors flex items-start gap-2">
                   <svg className="w-4 h-4 mt-0.5 text-brand-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -114,10 +114,10 @@ export default function FooterV1() {
           className="mt-12 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4"
           style={{ borderTop: "1px solid #DDDAD0" }}
         >
-          <p className="text-xs tracking-widest uppercase" style={{ color: "#9A9A9F" }}>
+          <p className="text-xs tracking-widest uppercase" style={{ color: "#66666B" }}>
             © {new Date().getFullYear()} Startup Supports. All rights reserved.
           </p>
-          <div className="flex gap-6 text-xs tracking-widest uppercase" style={{ color: "#9A9A9F" }}>
+          <div className="flex gap-6 text-xs tracking-widest uppercase" style={{ color: "#66666B" }}>
             <Link href="#" className="hover:text-ink-3 transition-colors">Privacy</Link>
             <Link href="#" className="hover:text-ink-3 transition-colors">Terms</Link>
             <span>Made in India</span>

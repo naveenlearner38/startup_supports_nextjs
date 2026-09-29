@@ -2,14 +2,26 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import NavbarV1 from "@/components/NavbarV1";
+import JsonLd from "@/components/JsonLd";
+import { pageMetadata, serviceJsonLd } from "@/lib/seo";
 import FooterV1 from "@/components/FooterV1";
 import AnimateV1 from "@/components/AnimateV1";
 import Card3D from "@/components/Card3D";
 
-export const metadata: Metadata = {
-  title: "Freight Forwarding & Logistics — Startup Supports V1",
-  description: "End-to-end freight forwarding, logistics, and customs clearance for Indian exporters. Sea, air, and road.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Freight Forwarding & Customs Clearance",
+  description:
+    "Sea, air and road freight forwarding with customs clearance and proof-of-export handling for Indian exporters — one partner from pickup to delivery.",
+  path: "/export-services/freight-forwarding",
+});
+
+const jsonLd = serviceJsonLd({
+  name: "Freight Forwarding & Logistics",
+  description:
+    "Sea, air and road freight forwarding with customs clearance and proof-of-export handling for Indian exporters — one partner from pickup to delivery.",
+  path: "/export-services/freight-forwarding",
+  serviceType: "Freight forwarding and logistics",
+});
 
 const modes = [
   {
@@ -100,6 +112,7 @@ export default function FreightV1() {
   return (
     <>
       <NavbarV1 />
+      <JsonLd data={jsonLd} />
       <main>
 
         {/* ── HERO — full-width image + parallax overlay ── */}
@@ -155,7 +168,7 @@ export default function FreightV1() {
               <a
                 href="mailto:info@startupsupports.com?subject=Freight Forwarding Enquiry"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 font-bold rounded-full transition-all hover:-translate-y-0.5"
-                style={{ background: "#22c55e", color: "#fff", boxShadow: "0 8px 28px rgba(34,197,94,0.4)" }}
+                style={{ background: "#15803d", color: "#fff", boxShadow: "0 8px 28px rgba(34,197,94,0.4)" }}
               >
                 Request a Quote →
               </a>
@@ -349,7 +362,7 @@ export default function FreightV1() {
                   <a
                     href="mailto:info@startupsupports.com?subject=Freight Forwarding Enquiry"
                     className="w-full flex items-center justify-center py-4 font-bold rounded-full transition-all hover:-translate-y-0.5 mb-3"
-                    style={{ background: "#22c55e", color: "#fff", boxShadow: "0 8px 28px rgba(34,197,94,0.35)" }}
+                    style={{ background: "#15803d", color: "#fff", boxShadow: "0 8px 28px rgba(34,197,94,0.35)" }}
                   >
                     Request a Quote
                   </a>

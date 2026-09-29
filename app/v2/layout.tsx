@@ -16,9 +16,13 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Startup Supports — Build Bold. Export Global.",
-  description:
-    "India's trusted partner for startup success and international trade excellence. Pitch decks, business plans, export documentation, freight forwarding, and more.",
+  title: {
+    default: "Startup Supports — Build Bold. Export Global.",
+    template: "%s",
+  },
+  alternates: { canonical: "/v2" },
+  // Legacy design variant: keep out of the index so it never competes with the main site.
+  robots: { index: false, follow: false },
 };
 
 export default function V2Layout({ children }: { children: ReactNode }) {

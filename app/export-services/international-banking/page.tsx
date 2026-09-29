@@ -2,15 +2,27 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import NavbarV1 from "@/components/NavbarV1";
+import JsonLd from "@/components/JsonLd";
+import { pageMetadata, serviceJsonLd } from "@/lib/seo";
 import FooterV1 from "@/components/FooterV1";
 import AnimateV1 from "@/components/AnimateV1";
 import Card3D from "@/components/Card3D";
 import Counter from "@/components/Counter";
 
-export const metadata: Metadata = {
-  title: "International Banking Support — Startup Supports V1",
-  description: "Forex accounts, Letters of Credit, and cross-border payment infrastructure for Indian exporters.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Forex & Letters of Credit for Exporters",
+  description:
+    "Forex accounts, Letters of Credit, e-BRC and FEMA compliance support so Indian exporters get paid safely and on time across borders.",
+  path: "/export-services/international-banking",
+});
+
+const jsonLd = serviceJsonLd({
+  name: "International Banking Support",
+  description:
+    "Forex accounts, Letters of Credit, e-BRC and FEMA compliance support so Indian exporters get paid safely and on time across borders.",
+  path: "/export-services/international-banking",
+  serviceType: "International banking support for exporters",
+});
 
 const services = [
   { title: "Export Current Account", desc: "Dedicated export current account linked to ECGC and RBI-compliant foreign remittance facilities." },
@@ -52,6 +64,7 @@ export default function InternationalBankingV1() {
   return (
     <>
       <NavbarV1 />
+      <JsonLd data={jsonLd} />
       <main>
 
         {/* ── HERO — premium dark, circuit/grid pattern ── */}
@@ -113,7 +126,7 @@ export default function InternationalBankingV1() {
                   <a
                     href="mailto:info@startupsupports.com?subject=International Banking Enquiry"
                     className="inline-flex items-center justify-center gap-2 px-8 py-4 font-bold rounded-full transition-all hover:-translate-y-0.5"
-                    style={{ background: "#22c55e", color: "#fff", boxShadow: "0 8px 28px rgba(34,197,94,0.4)" }}
+                    style={{ background: "#15803d", color: "#fff", boxShadow: "0 8px 28px rgba(34,197,94,0.4)" }}
                   >
                     Book a Consultation →
                   </a>
@@ -160,7 +173,7 @@ export default function InternationalBankingV1() {
                       >
                         {s.stat}
                       </div>
-                      <div className="text-xs leading-relaxed" style={{ color: "#5A5A5F" }}>{s.desc}</div>
+                      <div className="text-xs leading-relaxed" style={{ color: "#9A9A9F" }}>{s.desc}</div>
                     </Card3D>
                   </AnimateV1>
                 ))}
@@ -268,7 +281,7 @@ export default function InternationalBankingV1() {
               >
                 How We Work
               </h2>
-              <p className="mt-3" style={{ color: "#5A5A5F" }}>
+              <p className="mt-3" style={{ color: "#9A9A9F" }}>
                 From account setup to realisation — we stay with you through{" "}
                 <em style={{ fontFamily: "var(--font-instrument)", fontStyle: "italic", color: "#22c55e" }}>every transaction</em>.
               </p>
@@ -300,7 +313,7 @@ export default function InternationalBankingV1() {
                         >
                           {step.title}
                         </h3>
-                        <p className="text-sm leading-relaxed" style={{ color: "#5A5A5F" }}>{step.desc}</p>
+                        <p className="text-sm leading-relaxed" style={{ color: "#9A9A9F" }}>{step.desc}</p>
                       </div>
                     </div>
                   </AnimateV1>
@@ -324,7 +337,7 @@ export default function InternationalBankingV1() {
                   <a
                     href="mailto:info@startupsupports.com?subject=International Banking Enquiry"
                     className="w-full flex items-center justify-center py-4 font-bold rounded-full transition-all hover:-translate-y-0.5 mb-3"
-                    style={{ background: "#22c55e", color: "#fff", boxShadow: "0 8px 28px rgba(34,197,94,0.35)" }}
+                    style={{ background: "#15803d", color: "#fff", boxShadow: "0 8px 28px rgba(34,197,94,0.35)" }}
                   >
                     Book a Consultation
                   </a>
